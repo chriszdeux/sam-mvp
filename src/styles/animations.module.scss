@@ -1,0 +1,52 @@
+.rotate_slow {
+  animation: rotate-fade 60s linear infinite;
+  transform-origin: top center;
+}
+
+.zoom_animation {
+  animation: zoom_animation 60s linear infinite;
+  // transform-origin: top center;
+}
+
+@keyframes rotate-fade {
+  0% {
+    transform: translateX(0) rotateX(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(-800px) rotateX(-40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes zoom_animation {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+    filter: grayscale(0);
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    filter: grayscale(1) brightness(100px);
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+    filter: grayscale(0) brightness(0px);
+  }
+}

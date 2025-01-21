@@ -1,0 +1,58 @@
+// Flexbox mixin
+@mixin flex($justify: center, $align: center, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+// Justify content mixins
+@mixin flex-start {
+  @include flex(flex-start);
+}
+
+@mixin flex_center {
+  @include flex(center);
+}
+
+@mixin flex-end {
+  @include flex(flex-end);
+}
+
+@mixin flex-between {
+  @include flex(space-between);
+}
+
+@mixin flex-around {
+  @include flex(space-around);
+}
+
+// Align items mixins
+@mixin flex-align-start {
+  @include flex(center, flex-start);
+}
+
+@mixin flex-align-center {
+  @include flex(center, center);
+}
+
+@mixin flex-align-end {
+  @include flex(center, flex-end);
+}
+
+// Combination mixins
+@mixin flex-start-center {
+  @include flex(flex-start, center);
+}
+
+@mixin flex_center-start {
+  @include flex(center, flex-start);
+}
+
+@mixin flex-end-center {
+  @include flex(flex-end, center);
+}
+
+@mixin flex-between-center {
+  @include flex(space-between, center);
+}

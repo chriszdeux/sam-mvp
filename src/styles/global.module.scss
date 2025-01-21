@@ -1,0 +1,54 @@
+@mixin fade-gradient($direction, $color1, $color2, $stop1: 0%, $stop2: 100%) {
+  background: linear-gradient(
+    $direction,
+    $color1 $stop1,
+    $color2 $stop2
+  );
+  z-index: 1;
+}
+
+
+.flex_center {
+@include flex-center;
+}
+.flex_end {
+  @include flex-end;
+}
+
+.fade_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    $black 0%,
+    $transparent 20%,
+    $transparent 30%,
+    $black 100%
+  );
+  // z-index: 0;
+}
+
+
+.fade_overlay_left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+  @include fade-gradient(to right, $black, $transparent, 0%, 30%);
+}
+
+.fade_overlay_right {
+  @include fade-gradient(to left, $black, $transparent, 0%, 30%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
