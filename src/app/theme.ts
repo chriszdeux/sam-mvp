@@ -1,8 +1,22 @@
-// src/theme.ts
 "use client";
 import { Goldman } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 import { teal, red, blue, orange } from "@mui/material/colors";
+import "@mui/material/styles";
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    customColors: {
+      lightBlue: string;
+    };
+  }
+
+  interface PaletteOptions {
+    customColors?: {
+      lightBlue?: string;
+    };
+  }
+}
 
 const nColor = 500;
 const hoverColor = 300;
@@ -49,18 +63,32 @@ const theme = createTheme({
       dark: orange[hoverColor],
       contrastText: white,
     },
+    customColors: {
+      lightBlue: 'rgba(5,142,207,.3)'
+    }
   },
   breakpoints: {
     values: {
-      xs: 0,
-      sm: 430,
-      md: 768,
+      xs: 375,
+      sm: 390,
+      md: 932,
       lg: 1440,
       xl: 1920,
     },
   },
   components: {
     MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          h1: "h1",
+          h2: "h2",
+          h3: "h3",
+          body1: "p",
+          body2: "p",
+          caption: "span",
+          overline: "span",
+        },
+      },
       styleOverrides: {
         root: {
           color: blue[50],
@@ -78,10 +106,10 @@ const theme = createTheme({
           fontWeight: 700,
         },
         body1: {
-          fontSize: "2.2rem",
+          fontSize: "1.6rem",
         },
         body2: {
-          fontSize: "1.6rem",
+          fontSize: "1.4rem",
         },
         caption: {
           fontSize: "1rem",
@@ -89,14 +117,13 @@ const theme = createTheme({
         overline: {
           fontSize: "1rem",
         },
-        
       },
     },
     MuiButton: {
       styleOverrides: {
         root: {
           width: 348,
-          height: 48
+          height: 48,
         },
         fullWidth: {
           width: "100%",

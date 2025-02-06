@@ -36,7 +36,7 @@
 .fade_overlay_left {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -5px;
   bottom: 0;
   width: 100%;
   pointer-events: none;
@@ -47,8 +47,47 @@
   @include fade-gradient(to left, $black, $transparent, 0%, 30%);
   position: absolute;
   top: 0;
+  right: -5px;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.fade_overlay_top {
+  @include fade-gradient(to bottom, $black, $transparent, 0%, 30%);
+  position: absolute;
+  top: 0;
   right: 0;
   bottom: 0;
   width: 100%;
   pointer-events: none;
+}
+
+.fade_overlay_bottom {
+  @include fade-gradient(to top, $black, $transparent, 0%, 30%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.transparent_color {
+  background-color: $transparent-bg;
+}
+
+.blue_transparent_color {
+  background-color: $transparent-caption;
+}
+
+.caption_container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 24px;
+  padding: 16px;
+  text-align: center;
+  background-color: $transparent-caption;
 }

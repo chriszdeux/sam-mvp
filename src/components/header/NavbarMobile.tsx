@@ -9,13 +9,14 @@ import { blue, grey } from '@mui/material/colors'
 import FaceIcon from '@mui/icons-material/Face';
 import CustomModal from '../modal/CustomModal'
 import NavbarDesk from './NavbarDesk'
-
+import styles from '../../styles/index.module.scss'
 export const NavbarMobile = () => {
   const [open, setOpen] = useToggle()
   const [openUser, setOpenUser] = useToggle()
   const theme = useTheme();
   const lg = useMediaQuery(theme.breakpoints.up('lg'));
   const value = 50
+  const { fade_overlay_top } = styles
   const menuItems = React.useMemo(() => 
     menuRoutes.map((route, idx) => (
       <ListItem key={route.path} divider sx={{
@@ -39,6 +40,7 @@ export const NavbarMobile = () => {
   return (
     <>
       <AppBar position="fixed" sx={{background:'none'}}>
+        <div className={fade_overlay_top}></div>
         <Toolbar>
           <Typography variant="h5" color="primary">SAM</Typography>
           <Box sx={{ flexGrow: 1 }} />

@@ -6,7 +6,6 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { NavbarMobile } from "@/components/header/NavbarMobile";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme";
-import '../styles/reset.scss'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

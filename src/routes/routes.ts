@@ -5,7 +5,7 @@ export const  menuRoutes = [
   },
   {
    label: 'Historia',
-   path: '#path',
+   path: '#history',
   },
   {
     label: 'Blockchain',

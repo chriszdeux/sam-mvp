@@ -1,21 +1,12 @@
 "use client";
+import { ContainerCallToActionButtons } from "@/styled-components/mainSection.styled";
 import { Box, Button, useMediaQuery, useTheme } from "@mui/material";
 
 export default function CallToActionButtons() {
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        flexDirection: md ? "column" : "row",
-        justifyContent: !md ? "flex-end" : "center",
-        alignItems: !md ? "flex-end" : "center",
-        gap: 2,
-        marginTop: 4,
-      }}
-    >
+    <ContainerCallToActionButtons >
       {md ? (
         <>
           <Button variant="contained" color="primary">
@@ -31,6 +22,6 @@ export default function CallToActionButtons() {
           </Button>
         </>
       )}
-    </Box>
+    </ContainerCallToActionButtons>
   );
 }

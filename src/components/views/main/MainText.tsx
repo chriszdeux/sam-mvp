@@ -5,7 +5,7 @@ export default function MainText() {
   const lg = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
-    <Box
+    <Container
       sx={{
         display: lg ? "none" : "revert",
       }}
@@ -19,6 +19,6 @@ export default function MainText() {
         Este sistema es clave para la cooperación y el progreso común en la
         expansión humana por el universo.
       </Typography>
-    </Box>
+    </Container>
   );
 }
