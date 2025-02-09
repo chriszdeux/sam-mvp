@@ -9,6 +9,7 @@ export const MainSection = styled("main")(({ theme }) => ({
   height: "100vh",
   position: "relative",
   overflow: "hidden",
+  background: theme.palette.background.default,
 }));
 
 export const MainInfoContainer = styled("aside")(({ theme }) => ({
@@ -50,7 +51,7 @@ export const FigureStyle = styled("figure")(({ theme }) => {
     position: md ? "relative" : "absolute",
     top: 0,
     margin: 0,
-    zIndex: -1,
+    // zIndex: ,
   };
 });
 

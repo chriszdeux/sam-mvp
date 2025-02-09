@@ -9,6 +9,7 @@ export const HistoryImage = styled(Image)(({ theme }) => {
     height:380,
     objectFit: "cover",
     objectPosition: "center",
+    zIndex: 1
   };
 });
 

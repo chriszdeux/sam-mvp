@@ -1,19 +1,24 @@
 export const  menuRoutes = [
   {
     label: 'Inicio',
-    path: '#main',
+    path: '/',
+    // submenu: true,
+    // subMenuItems: [
+    //   { label: 'Historia', path: '#histor' },
+    //   { label: 'Blockchain', path: '#blockchai' },
+    // ],
   },
+  // {
+  //  label: 'Historia',
+  //  path: '#history',
+  // },
+  // {
+  //   label: 'Blockchain',
+  //   path: '#blockchain',
+  // },
   {
-   label: 'Historia',
-   path: '#history',
-  },
-  {
-    label: 'Blockchain',
-    path: '#blockchain',
-  },
-  {
-    label: 'Listado Cryptomonedas',
-    path: '#resources-economy',
+    label: 'Mercado',
+    path: '/market',
   },
   {
     label: 'Noticias',

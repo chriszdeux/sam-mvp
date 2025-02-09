@@ -4,7 +4,8 @@ import BlockchainSideB from "./BlockchainSideB";
 
 export default function BlockchainSection() {
   return (
-    <MainContainer id="blockchain" sx={{alignItems: 'flex-start'}}>
+    <MainContainer id="blockchain" 
+    >
       <BlockchainSideA />
       <BlockchainSideB />
     </MainContainer>

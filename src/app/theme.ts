@@ -8,12 +8,16 @@ declare module "@mui/material/styles" {
   interface Palette {
     customColors: {
       lightBlue: string;
+      lightRed: string;
+      lightGreen: string;
     };
   }
 
   interface PaletteOptions {
     customColors?: {
       lightBlue?: string;
+      lightRed?: string;
+      lightGreen?: string;
     };
   }
 }
@@ -38,6 +42,12 @@ const theme = createTheme({
   palette: {
     background: {
       default: bgColor,
+    },
+    success: {
+      main: teal[nColor],
+      light: teal[light],
+      dark: teal[hoverColor],
+      contrastText: white,
     },
     primary: {
       main: blue[nColor],
@@ -64,7 +74,9 @@ const theme = createTheme({
       contrastText: white,
     },
     customColors: {
-      lightBlue: 'rgba(5,142,207,.3)'
+      lightBlue: 'rgba(5, 143, 207, 0.14)',
+      lightRed: 'rgba(255, 98, 98, 0.14)',
+      lightGreen: 'rgba(113, 247, 184, 0.15)',
     }
   },
   breakpoints: {
@@ -216,6 +228,32 @@ const theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: blue[nColor], // Color del borde normal
+            },
+            "&:hover fieldset": {
+              borderColor: blue[hoverColor], // Color del borde al pasar el mouse
+            },
+            // "&.Mui-focused fieldset": {
+            //   borderColor: teal[nColor], // Color cuando está enfocado
+            // },
+          },
+          "& .MuiInputBase-input": {
+            color: white, // Color del texto
+          },
+          "& .MuiInputLabel-root": {
+            color: blue[hoverColor], // Color de la etiqueta
+          },
+          // "& .MuiInputLabel-root.Mui-focused": {
+          //   color: teal[nColor], // Color de la etiqueta cuando está enfocado
+          // },
+        },
+      },
+    },    
   },
 });
 
