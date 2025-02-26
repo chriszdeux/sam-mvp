@@ -1,21 +1,28 @@
-'use client'
-import { styled } from "@mui/material";
+"use client";
+import { styled } from "@mui/material/styles";
 
-export const FigureImage = styled("figure")(({ theme }) => {
-  return {
-    position: "relative",
-    width: '100%',
-    margin: '16px 0',
-  }
-})
+export const FigureImage = styled("figure")(({ theme }) => ({
+  position: "relative",
+  width: "100%",
+  margin: theme.spacing(2, 0),
+  borderRadius: theme.shape.borderRadius,
+  overflow: "hidden",
+}));
 
 export const FigCaption = styled("figcaption")(({ theme }) => ({
-  backgroundColor: 'rgba(0,0,0,.5)',
-  position: 'absolute',
-  left: 0, bottom: 0,
+  backgroundColor: "rgba(0, 0, 0, 0.6)",
+  position: "absolute",
+  left: 0,
+  bottom: 0,
   width: "100%",
   maxHeight: 130,
-  padding: 16,
-  color: 'white',
-  zIndex: 2
-}))
+  padding: theme.spacing(2),
+  color: theme.palette.common.white,
+  zIndex: 2,
+  display: "flex",
+  alignItems: "center",
+  [theme.breakpoints.down("sm")]: {
+    padding: theme.spacing(1.5),
+    fontSize: "0.875rem",
+  },
+}));

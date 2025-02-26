@@ -6,7 +6,6 @@ export default function CryptoDisplay() {
     <Container>
       <Stack
         mt={5}
-        // m={1}
         direction="row"
         flexWrap="wrap"
         justifyContent="space-between"

@@ -12,7 +12,7 @@ export default function NavbarDesk() {
     >
       {menuRoutes.map((route) => (
         <Link href={route.path} color="primary" key={route.path} sx={{
-          fontSize: '1rem',
+          fontSize: '1.6rem',
         }} component={LinkNext}>
           {route.label}
         </Link>

@@ -7,17 +7,21 @@ import "@mui/material/styles";
 declare module "@mui/material/styles" {
   interface Palette {
     customColors: {
+      white: string;
       lightBlue: string;
       lightRed: string;
       lightGreen: string;
+      transparentBlue: string;
     };
   }
 
   interface PaletteOptions {
     customColors?: {
+      white?: string;
       lightBlue?: string;
       lightRed?: string;
       lightGreen?: string;
+      transparentBlue: string;
     };
   }
 }
@@ -53,7 +57,6 @@ const theme = createTheme({
       main: blue[nColor],
       light: blue[light],
       dark: blue[hoverColor],
-      contrastText: white,
     },
     secondary: {
       main: teal[nColor],
@@ -74,9 +77,11 @@ const theme = createTheme({
       contrastText: white,
     },
     customColors: {
+      white: white,
       lightBlue: 'rgba(5, 143, 207, 0.14)',
       lightRed: 'rgba(255, 98, 98, 0.14)',
       lightGreen: 'rgba(113, 247, 184, 0.15)',
+      transparentBlue: 'rgba(5, 143, 207, 0.48)'
     }
   },
   breakpoints: {

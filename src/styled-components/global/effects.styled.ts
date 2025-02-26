@@ -1,47 +1,45 @@
-'use client'
+"use client";
 import { styled } from "@mui/material";
 
-export const LeftFade = styled("div")(({ theme }) => ({
+const commonStyles:any = {
   position: 'absolute',
+  pointerEvents: 'none',
+  zIndex: 0,
+  background: (theme: any) => `linear-gradient(to right, ${theme.palette.background.default}, transparent)`,
+};
+
+export const LeftFade = styled("div")(({ theme }) => ({
+  ...commonStyles,
   top: 0,
-  left: -5,
+  left: 0,
   bottom: 0,
   width: '25%',
-  pointerEvents: 'none',
   background: `linear-gradient(to right, ${theme.palette.background.default}, transparent)`,
-  zIndex: 1
 }));
 
 export const RightFade = styled("div")(({ theme }) => ({
-  position: 'absolute',
+  ...commonStyles,
   top: 0,
-  right: -5,
+  right: 0,
   bottom: 0,
   width: '25%',
-  pointerEvents: 'none',
   background: `linear-gradient(to left, ${theme.palette.background.default}, transparent)`,
-  zIndex: 1
 }));
 
 export const TopFade = styled("div")(({ theme }) => ({
-  position: 'absolute',
+  ...commonStyles,
   top: 0,
-  right: -5,
+  right: 0,
   width: '100%',
   height: '25%',
-  pointerEvents: 'none',
   background: `linear-gradient(to bottom, ${theme.palette.background.default}, transparent)`,
-  zIndex: 1
 }));
 
 export const BottomFade = styled("div")(({ theme }) => ({
-  position: 'absolute',
-  right: -5,
+  ...commonStyles,
+  right: 0,
   bottom: 0,
   width: '100%',
   height: '25%',
-  pointerEvents: 'none',
   background: `linear-gradient(to top, ${theme.palette.background.default}, transparent)`,
-  zIndex: 1
 }));
-
