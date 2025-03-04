@@ -42,7 +42,7 @@ export const NavbarMobile = () => {
       <AppBar position="fixed" sx={{background:'none'}}>
         <div className={fade_overlay_top}></div>
         <Toolbar>
-          <Typography variant="h4" color="primary">SAM</Typography>
+          <Typography variant="h4" >SAM</Typography>
           <Box sx={{ flexGrow: 1 }} />
           {
             !lg

@@ -5,7 +5,7 @@ import { DescriptionContent } from "@/styled-components/descriptionSection.style
 export default function DescriptionPoints() {
   return (
     <Box>
-      <Typography variant="h4" color="primary" mb={1} mt={5}>
+      <Typography variant="h4"  mb={1} mt={5}>
         Puntos a Favor
       </Typography>
       <List sx={{width: '100%', minWidth: 350}}>

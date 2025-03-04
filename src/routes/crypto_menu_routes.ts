@@ -9,10 +9,10 @@ export const cryptoMenuRoutes = [
         path: `${base}/description`,
         name: 'Descripción',
     },
-    {
-        path: `${base}/blockchain`,
-        name: 'Blockchain',
-    },
+    // {
+    //     path: `${base}/blockchain`,
+    //     name: 'Blockchain',
+    // },
     {
         path: `${base}/transactions`,
         name: 'Transacciones',
@@ -21,8 +21,8 @@ export const cryptoMenuRoutes = [
         path: `${base}/news`,
         name: 'Noticias',
     },
-    {
-        path: `${base}/community`,
-        name: 'Comunidad',
-    },
+    // {
+    //     path: `${base}/community`,
+    //     name: 'Comunidad',
+    // },
 ];

@@ -1,5 +1,4 @@
-import { Divider, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import { Stack, Typography } from "@mui/material";
 import PlanetImg from "../../public/img/blockchain_cube.jpg";
 import FadeComponent from "../fades/FadeComponent";
 import { DescriptionContainer, DescriptionImage } from "@/styled-components/descriptionSection.style";
@@ -7,10 +6,6 @@ export default function DescriptionBlockA() {
   return (
     <DescriptionContainer>
       <Stack spacing={2} width="100%">
-        <Typography variant="h4" mt={2}>
-          Kanto: El Núcleo de la Economía Galáctica
-        </Typography>
-        <Divider sx={{ color: "white" }} />
         <Typography variant="body1">
           En un universo donde la expansión es ilimitada, Kanto emerge como la
           piedra angular de la economía galáctica. Esta criptomoneda no es solo

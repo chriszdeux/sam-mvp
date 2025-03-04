@@ -7,6 +7,8 @@ export const data = [
     total: "924.9 CR",
     status: "Pendiente",
     folio: "dkj3-3454-54",
+    senderAddress: "0xABC123...",
+    receiverAddress: "0xDEF456...",
   },
   {
     crypto: "Nova Token",
@@ -16,6 +18,8 @@ export const data = [
     total: "513.4 CR",
     status: "Completado",
     folio: "nv98-7845-21",
+    senderAddress: "0x789XYZ...",
+    receiverAddress: "0x456LMN...",
   },
   {
     crypto: "Galaxium",
@@ -25,6 +29,8 @@ export const data = [
     total: "427 CR",
     status: "Pendiente",
     folio: "gx12-5548-99",
+    senderAddress: "0x654RTY...",
+    receiverAddress: "0x321QWE...",
   },
   {
     crypto: "EtherX",
@@ -34,6 +40,8 @@ export const data = [
     total: "434.175 CR",
     status: "Fallido",
     folio: "ex56-2291-84",
+    senderAddress: "0xAAA111...",
+    receiverAddress: "0xBBB222...",
   },
   {
     crypto: "Solara",
@@ -43,6 +51,8 @@ export const data = [
     total: "370.2 CR",
     status: "Completado",
     folio: "sl43-9021-11",
+    senderAddress: "0xCCC333...",
+    receiverAddress: "0xDDD444...",
   },
   {
     crypto: "Kanto Coin",
@@ -52,6 +62,8 @@ export const data = [
     total: "924.9 CR",
     status: "Pendiente",
     folio: "dkj3-3454-54",
+    senderAddress: "0xEEE555...",
+    receiverAddress: "0xFFF666...",
   },
   {
     crypto: "Nova Token",
@@ -61,6 +73,8 @@ export const data = [
     total: "513.4 CR",
     status: "Completado",
     folio: "nv98-7845-21",
+    senderAddress: "0xGGG777...",
+    receiverAddress: "0xHHH888...",
   },
   {
     crypto: "Galaxium",
@@ -70,6 +84,8 @@ export const data = [
     total: "427 CR",
     status: "Pendiente",
     folio: "gx12-5548-99",
+    senderAddress: "0xIII999...",
+    receiverAddress: "0xJJJ000...",
   },
   {
     crypto: "EtherX",
@@ -79,6 +95,8 @@ export const data = [
     total: "434.175 CR",
     status: "Fallido",
     folio: "ex56-2291-84",
+    senderAddress: "0xKKK111...",
+    receiverAddress: "0xLLL222...",
   },
   {
     crypto: "Solara",
@@ -88,5 +106,7 @@ export const data = [
     total: "370.2 CR",
     status: "Completado",
     folio: "sl43-9021-11",
+    senderAddress: "0xMMM333...",
+    receiverAddress: "0xNNN444...",
   },
 ];

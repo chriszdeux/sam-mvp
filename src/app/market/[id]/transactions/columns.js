@@ -1,4 +1,4 @@
-import theme from "@/app/theme";
+import theme from "@/app/theme/theme";
 import { IconButton, List, ListItemText, Typography } from "@mui/material";
 
 import BlurOnIcon from '@mui/icons-material/BlurOn';
@@ -72,7 +72,7 @@ export const columns = [
             display: 'flex', flexDirection: 'column', alignItems: 'flex-start'
           }}
         />
-          <IconButton color="primary"><BlurOnIcon /></IconButton>
+          <IconButton ><BlurOnIcon /></IconButton>
       </List>
     )
   }
@@ -106,5 +106,13 @@ export const columnsLg = [
   {
     Header: "Folio",
     accessor: "folio",
+  },
+  {
+    Header: "Sender Address",
+    accessor: "senderAddress",
+  },
+  {
+    Header: "Receiver Address",
+    accessor: "receiverAddress",
   },
 ];

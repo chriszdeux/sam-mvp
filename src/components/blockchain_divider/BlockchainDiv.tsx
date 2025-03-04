@@ -17,7 +17,7 @@ export default function BlockchainDiv({
       <Typography
         align="center"
         component="span"
-        color="white"
+        // color="white"
         variant="caption"
       >
        {text}

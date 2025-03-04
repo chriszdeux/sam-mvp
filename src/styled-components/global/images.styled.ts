@@ -1,5 +1,6 @@
 "use client";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 
 export const FigureImage = styled("figure")(({ theme }) => ({
   position: "relative",
@@ -25,4 +26,10 @@ export const FigCaption = styled("figcaption")(({ theme }) => ({
     padding: theme.spacing(1.5),
     fontSize: "0.875rem",
   },
+}));
+
+export const CustomImage = styled(Image)(({ theme }) => ({
+  width: "100%",
+  objectFit: "cover",
+  objectPosition: "center",
 }));

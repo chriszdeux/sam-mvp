@@ -6,11 +6,11 @@ import FadeComponent from "@/components/fades/FadeComponent";
 export default function BlockchainSideA() {
   return (
     <Box>
-      <Typography variant="h4" color="primary" textAlign="center" mb={2}>
+      <Typography variant="h4"  textAlign="center" mb={2}>
         La Espina Dorsal del Universo Digital
       </Typography>
       <Stack spacing={2} alignItems="center">
-        <Typography variant="body1" color="primary" mb={1}>
+        <Typography variant="body1"  mb={1}>
           El blockchain es la base de la vida interestelar, con bloques que
           registran datos inmutables en un sistema descentralizado. Los nodos
           representan planetas y estaciones, mientras las recompensas impulsan

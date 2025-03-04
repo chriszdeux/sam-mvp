@@ -11,9 +11,14 @@ let action =  {
   Cell: () => {
     const theme = useTheme();
     return (
+      <>
       <IconButton sx={{ color: theme.palette.customColors.white }} component={Link} href="/market/crypto/chart">
         <MoreVertIcon />
       </IconButton>
+      <IconButton sx={{ color: theme.palette.customColors.white }} component={Link} href="/trade/54621812">
+        <MoreVertIcon />
+      </IconButton>
+      </>
     );
   }
 }

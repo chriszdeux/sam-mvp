@@ -23,11 +23,6 @@ export default function MarketView() {
 
   return (
     <>
-      <Container>
-        <Typography variant="h4" color="info" mt={16} mb={4}>
-          Seleccion Aleatoria
-        </Typography>
-      </Container>
       <CryptoDisplay />
       <Container>
         <Typography variant="h4" color="info" mt={4}>

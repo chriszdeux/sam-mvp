@@ -24,22 +24,16 @@ export const MainContainer = styled(Container)(({ theme }) => ( {
   [theme.breakpoints.up("lg")]: {
     flexDirection: "row",
   }
-  // "&::before": {
-  //   content: '""',
-  //   position: "absolute",
-  //   top: 0,
-  //   left: 0,
-  //   width: "100%",
-  //   height: "100%",
-  //   backgroundImage: `url(${Image.src})`,
-  //   backgroundSize: "cover",
-  //   backgroundRepeat: "no-repeat",
-  //   backgroundPosition: "center",
-  //   backgroundAttachment: "fixed",
-  //   opacity: 0.2,
-  //   zIndex: -1,
-  // }
 }));
 
+export const ContainerPage = styled(Container)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+  minHeight: "100vh",
+  paddingTop: 64 
+}))
 
 

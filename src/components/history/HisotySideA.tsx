@@ -8,7 +8,7 @@ export default function HistorySideA() {
   return (
     // <Container>
       <Stack spacing={2}>
-        <Typography variant="h4" color="primary">
+        <Typography variant="h4">
           El amanecer de la red universal
         </Typography>
         <FadeComponent all caption="La historia comienza de nuevo">
@@ -17,14 +17,14 @@ export default function HistorySideA() {
             alt="Background image"
           />
         </FadeComponent>
-        <Typography variant="body1" color="primary" component="p" mb={1}>
+        <Typography variant="body1" component="p" mb={1}>
           La humanidad, en su afán de expansión, agotó los recursos de la Tierra y
           buscó refugio en las estrellas. Pero con esta migración masiva surgió un
           nuevo desafío: la economía interestelar. Los sistemas tradicionales no
           podían sostenerse en un entorno descentralizado y diverso.
         </Typography>
 
-        <Typography variant="body1" color="primary" component="p">
+        <Typography variant="body1" component="p">
           Así nació el blockchain intergaláctico, una red que conectaba colonias
           distantes, estaciones espaciales y flotas de exploración. Este avance
           tecnológico no solo resolvió problemas económicos, sino que también

@@ -11,16 +11,16 @@ export default function ListMainCryptos({sx}: Props) {
   return (
     <CryptoMainDisplay>
         <ListItemText 
-          primary={<Typography variant="h4" color="primary">Z-Aurus</Typography>}
-          secondary={<Typography color="primary" sx={{fontSize: '1.5rem'}}>75.66 C</Typography>}
+          primary={<Typography variant="h4">Z-Aurus</Typography>}
+          secondary={<Typography sx={{fontSize: '1.5rem'}}>75.66 C</Typography>}
         />
         <ListItemText 
-          primary={<Typography variant="h4" color="primary">Z-Aurus</Typography>}
-          secondary={<Typography color="primary" sx={{fontSize: '1.5rem'}}>75.66 C</Typography>}
+          primary={<Typography variant="h4">Z-Aurus</Typography>}
+          secondary={<Typography sx={{fontSize: '1.5rem'}}>75.66 C</Typography>}
         />
         <ListItemText 
-          primary={<Typography variant="h4" color="primary">Z-Aurus</Typography>}
-          secondary={<Typography color="primary" sx={{fontSize: '1.5rem'}}>75.66 C</Typography>}
+          primary={<Typography variant="h4">Z-Aurus</Typography>}
+          secondary={<Typography sx={{fontSize: '1.5rem'}}>75.66 C</Typography>}
         />     
     </CryptoMainDisplay>
   );

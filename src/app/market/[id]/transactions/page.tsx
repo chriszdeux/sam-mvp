@@ -10,7 +10,7 @@ export default function CryptoTransactionsPage() {
   const theme = useTheme()
   const lg = useMediaQuery(theme.breakpoints.up('lg'))
   return (
-    <CryptoLayout>
+    <CryptoLayout title="Transacciones Kanto, procesadas el dia de hoy 4,5852" divider sx={{overflowX: 'scroll'}}>
        <MainTable cols={ lg ? columnsLg : columns} data={data} pagination/>
     </CryptoLayout>
   );

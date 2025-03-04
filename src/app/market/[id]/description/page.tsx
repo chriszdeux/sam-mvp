@@ -6,7 +6,7 @@ import DescriptionPoints from "@/components/crypto_description/DescriptionPoints
 
 export default function DescriptionPage() {
   return (
-    <CryptoLayout>
+    <CryptoLayout title="Kanto: El Núcleo de la Economía Galáctica">
       <DescriptionBlockA />
       <ContinueDescription />
       <DescriptionPoints />

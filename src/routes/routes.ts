@@ -22,10 +22,14 @@ export const  menuRoutes = [
   },
   {
     label: 'Noticias',
-    path: '#future'
+    path: '/news'
   },
   {
     label: 'Proximamente',
     path: '#community'
   },
+  {
+    label: "Iniciar Sesion",
+    path: "/login"
+  }
 ]

@@ -37,7 +37,7 @@ export default function MainTable({
               {cols.map((column, idxColumn) => (
                 <TableCell
                   key={idxColumn}
-                  sx={{ fontWeight: "bold", color: "white" }}
+                  sx={{ fontWeight: "bold", color: "white", fontSize: "1.6rem" }}
                   align={idxColumn !== cols.length - 1 ? "left" : "right"}
                 >
                   {column.Header}
@@ -55,7 +55,7 @@ export default function MainTable({
                 <TableRow key={rowIndex} sx={{ color: "white" }}>
                   {cols.map((column: any, columnIndex: number) => (
                     <TableCell
-                      sx={{ color: "white", padding: '16px 0' }}
+                      sx={{ color: "white", fontSize: "1.4rem", padding: '16px 0' }}
                       key={columnIndex}
                       align={columnIndex !== cols.length - 1 ? "left" : "right"}
                     >
