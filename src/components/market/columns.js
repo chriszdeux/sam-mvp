@@ -3,6 +3,9 @@ import { Avatar, IconButton, Stack, Typography, useMediaQuery, useTheme } from '
 import { teal } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Link from 'next/link';
+import { useToggle } from '@/hooks';
+import CustomModal from '../modal/CustomModal';
+import TradeCryptoForm from '../trade/TradeCryptoForm';
 
 
 let action =  {
@@ -10,14 +13,22 @@ let action =  {
   accessor: null,
   Cell: () => {
     const theme = useTheme();
+    const [open, setOpen] = useToggle()
     return (
       <>
       <IconButton sx={{ color: theme.palette.customColors.white }} component={Link} href="/market/crypto/chart">
         <MoreVertIcon />
       </IconButton>
-      <IconButton sx={{ color: theme.palette.customColors.white }} component={Link} href="/trade/54621812">
+      <IconButton sx={{ color: theme.palette.customColors.white }} onClick={setOpen}>
         <MoreVertIcon />
       </IconButton>
+      <CustomModal
+        title="Comprar o vender"
+        open={open}
+        onClose={setOpen}
+      >
+        <TradeCryptoForm />
+      </CustomModal>
       </>
     );
   }

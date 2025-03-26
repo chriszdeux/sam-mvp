@@ -1,30 +1,26 @@
+import TradeCryptoForm from '@/components/trade/TradeCryptoForm';
 import React from 'react'
-import BuyCryptoForm from "@/components/trade/BuyCryptoForm"
 
 interface Props {
   title?: string;
   component: React.FC;
+  transfer?: boolean
 }
 
 export const tradeRoutes: Props[] = [
   {
     title: "Comprar",
-    component: BuyCryptoForm,
+    component: TradeCryptoForm,
+    transfer: false
   },
   {
     title: "Venta",
-    component: BuyCryptoForm,
+    component: TradeCryptoForm,
+    transfer: false
   },
   {
     title: "Transferir",
-    component: BuyCryptoForm,
-  },
-  {
-    title: "Convertir",
-    component: BuyCryptoForm,
-  },
-  {
-    title: "Analizar",
-    component: BuyCryptoForm,
+    component: TradeCryptoForm,
+    transfer: true
   },
 ]

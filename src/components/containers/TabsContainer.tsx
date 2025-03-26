@@ -56,9 +56,9 @@ export default function TabsContainer({ title, sx, data }: Props) {
   return (
     <Box
       sx={{
-        bgcolor: "background.default",
+        // bgcolor: "background.default",
         width: "100%",
-        background: theme.palette.background.default,
+        // background: theme.palette.background.default,
         // overflowY: 'hidden',
         scrollbarWidth: "none",
         "&::-webkit-scrollbar": {
@@ -87,7 +87,7 @@ export default function TabsContainer({ title, sx, data }: Props) {
       </AppBar>
       {data.map((item, i) => (
         <TabPanel key={i} value={value} index={i} dir={theme.direction}>
-          {<item.component />}
+          {<item.component isTransfer={item.transfer}/>}
         </TabPanel>
       ))}
     </Box>

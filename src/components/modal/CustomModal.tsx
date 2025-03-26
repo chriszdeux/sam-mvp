@@ -1,29 +1,36 @@
-import { Box, Modal } from "@mui/material";
+import {
+  CloseButton,
+  ModalContent,
+  ModalS,
+} from "@/styled-components/global/modal.styled";
+import CancelIcon from "@mui/icons-material/Cancel";
+import { Stack, Typography } from "@mui/material";
 
 interface Props {
+  title?: string;
   open: boolean;
-  handleClose: () => void;
+  onClose: () => void;
   children: React.ReactNode;
 }
-export default function CustomModal({ open, handleClose, children }: Props) {
+export default function CustomModal({ open, onClose, children, title }: Props) {
   return (
-    <Modal
+    <ModalS
       open={open}
-      onClose={handleClose}
+      onClose={onClose}
       aria-labelledby="modal-sam-desc"
       aria-describedby="modal-sam-desc"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
     >
-      <Box
-        sx={{
-          background: 'white',
-          padding: 18
-        }}
-      >{children}</Box>
-    </Modal>
+      <>
+        <CloseButton size="large" onClick={onClose}>
+          <CancelIcon />
+        </CloseButton>
+        <ModalContent>
+          <Typography id="modal-sam-desc" variant="h3" component="h2">
+            {title}
+          </Typography>
+          {children}
+        </ModalContent>
+      </>
+    </ModalS>
   );
 }

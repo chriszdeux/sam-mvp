@@ -74,7 +74,7 @@ export const NavbarMobile = () => {
       </Drawer>
       <CustomModal
         open={openUser}
-        handleClose={setOpenUser}
+        onClose={setOpenUser}
       >
         testing
       </CustomModal>
