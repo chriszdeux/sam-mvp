@@ -23,14 +23,16 @@ interface Props {
 }
 import { data, valuesCrypto } from "./CryptoBaseInfo";
 import { BuySellBar } from "@/components/layouts/crypto-layout/BuySellBar";
+import { animations } from "@/styles/animations";
 
 export default function CryptoLayout({ children, title, divider, sx }: Props) {
   const { palette, breakpoints } = useTheme();
   const md = useMediaQuery(breakpoints.up("md"));
   return (
-    <Box sx={{ marginTop: 8, width: "80%", margin: "0 auto" }}>
+    <Box  sx={{ marginTop: 8, width: "80%", margin: "0 auto" }}>
       <Box
         mt={12}
+        // className={animations.fadeIn}
         sx={{
           position: "relative",
           display: md ? "flex" : "block",
@@ -99,6 +101,7 @@ export default function CryptoLayout({ children, title, divider, sx }: Props) {
         <SubmenuCrypto />
         {/* <Divider /> */}
         <Stack spacing={1}
+        className={animations.fadeIn}
           sx={{
             width: md ? "70%" : "100%",
             minHeight: "80vh",

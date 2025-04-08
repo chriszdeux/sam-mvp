@@ -1,35 +1,53 @@
-export const  menuRoutes = [
+export interface RoutesSubPath {
+  label: string;
+  path: string;
+  auth?: boolean;
+  action?: () => void | null;
+}
+
+export interface RoutesInterface {
+  label: string;
+  route: string;
+  auth?: boolean;
+  action?: () => void | null;
+  subPath?: RoutesSubPath[]
+}
+
+export const  menuRoutes:RoutesInterface[] = [
   {
     label: 'Inicio',
-    path: '/',
-    // submenu: true,
-    // subMenuItems: [
-    //   { label: 'Historia', path: '#histor' },
-    //   { label: 'Blockchain', path: '#blockchai' },
-    // ],
+    route: '/',
+    // action: 
   },
-  // {
-  //  label: 'Historia',
-  //  path: '#history',
-  // },
-  // {
-  //   label: 'Blockchain',
-  //   path: '#blockchain',
-  // },
   {
     label: 'Mercado',
-    path: '/market',
+    route: '/market',
+    // action: 
   },
   {
     label: 'Noticias',
-    path: '/news'
+    route: '/news',
+    // action: 
   },
   {
     label: 'Proximamente',
-    path: '#community'
+    route: '#community',
+    // action: 
   },
   {
-    label: "Iniciar Sesion",
-    path: "/login"
+    label: "Identificate",
+    route: "/auth",
+    auth: true,
+    action: () => {
+      console.log("hola")
+    },
+    subPath: [
+      {
+        label: "Inicia Sesion",
+        path: "/login",
+        auth: true,
+      },
+      
+    ]
   }
 ]

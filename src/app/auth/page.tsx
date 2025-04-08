@@ -41,7 +41,7 @@ export default function page() {
         <Typography variant="h4">
           ¿Ya tienes cuenta?
           <LinkM
-            href="/login"
+            href="/auth/login"
             component={Link}
             underline="none"
             color="primary.main"

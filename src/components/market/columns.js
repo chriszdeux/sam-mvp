@@ -46,8 +46,8 @@ const columns = [
       <Stack direction="row" spacing={2} alignItems="center">
         <Avatar src={logo.src} sx={{ boxShadow: `0 0 15px -5px ${teal[200]}` }} />
         <Stack>
-          <Typography variant="caption">{name}</Typography>
-          <Typography variant="caption">{symbol}</Typography>
+          <Typography variant="body1">{name}</Typography>
+          <Typography variant="body1">{symbol}</Typography>
         </Stack>
       </Stack>
     )
@@ -60,8 +60,8 @@ const columns = [
       const md = useMediaQuery(theme.breakpoints.up('md'));
       return (
         <Stack direction={md ? 'row' : 'column'} spacing={1}>
-          <Typography variant="caption" align="right">{price}</Typography>
-          <Typography variant="caption" color="secondary" align="right">{h24}</Typography>
+          <Typography variant="body1" align="right">{price}</Typography>
+          <Typography variant="body1" color="secondary" align="right">{h24}</Typography>
         </Stack>
       );
     }

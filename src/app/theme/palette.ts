@@ -47,6 +47,7 @@ export const palette: PaletteOptions = {
     lightRed: 'rgba(255, 98, 98, 0.14)',
     lightGreen: 'rgba(113, 247, 184, 0.15)',
     transparentBlue: 'rgba(5, 143, 207, 0.48)',
+    transparent: 'rgba(0, 0,0, 0.48)',
     inputBgColor: inputBgColor
   },
 };

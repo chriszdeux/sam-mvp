@@ -18,6 +18,7 @@ declare module "@mui/material/styles" {
       lightGreen: string;
       transparentBlue: string;
       inputBgColor: string;
+      transparent: string;
     };
   }
 
@@ -29,6 +30,7 @@ declare module "@mui/material/styles" {
       lightGreen?: string;
       transparentBlue: string;
       inputBgColor: string;
+      transparent: string;
     };
   }
 }

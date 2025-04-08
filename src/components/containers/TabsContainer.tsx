@@ -5,6 +5,7 @@ import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { animations } from "@/styles/animations";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -55,14 +56,11 @@ export default function TabsContainer({ title, sx, data }: Props) {
 
   return (
     <Box
+    className={animations.fadeIn}
       sx={{
-        // bgcolor: "background.default",
         width: "100%",
-        // background: theme.palette.background.default,
-        // overflowY: 'hidden',
         scrollbarWidth: "none",
         "&::-webkit-scrollbar": {
-          // display: "none",
         },
         ...sx,
       }}
@@ -76,8 +74,6 @@ export default function TabsContainer({ title, sx, data }: Props) {
           variant="scrollable"
           sx={{
             background: theme.palette.background.default,
-            // overflowX: "auto",
-            // color: theme.palette.text.primary,
           }}
         >
           {data.map((item, i) => (

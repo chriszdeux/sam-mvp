@@ -11,8 +11,22 @@ interface Props {
   open: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  autoClose?: boolean;
+  duration?: number;
 }
-export default function CustomModal({ open, onClose, children, title }: Props) {
+export default function CustomModal({
+  open,
+  onClose,
+  children,
+  title,
+  autoClose = false,
+  duration = 4000,
+}: Props) {
+  autoClose &&
+    setTimeout(() => {
+      onClose();
+    }, duration);
+
   return (
     <ModalS
       open={open}

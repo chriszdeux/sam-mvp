@@ -11,7 +11,6 @@ export default function RowsGrow() {
           top: 128,
           display: 'flex',
           justifyContent: 'space-around'
-          // transform: "translate(-50%)",
         }}
       >
         <KeyboardDoubleArrowUpIcon

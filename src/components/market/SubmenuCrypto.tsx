@@ -1,6 +1,6 @@
 'use client'
 import { cryptoMenuRoutes } from "@/routes/crypto_menu_routes";
-import { Breadcrumbs, Typography, Link as LinkM, useTheme, useMediaQuery } from "@mui/material";
+import { Breadcrumbs, Link as LinkM, useTheme, useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -34,7 +34,6 @@ export default function SubmenuCrypto() {
             color={pathname === route.path ? 'primary' : 'inherit'}
             href={route.path}
             scroll={false}
-            fontSize={16}
           >
             {route.name}
           </LinkM>

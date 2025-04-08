@@ -16,7 +16,7 @@ export const ModalContent = styled(Box)(({theme}) => ({
   borderRadius: 8,
   // boxShadow: `0px 4px 16px ${theme.palette.customColors.lightGreen}`,
   border: `1px solid ${theme.palette.customColors.lightGreen}`,
-  // backgroundColor: theme.palette.customColors.darkGreen,
+  backgroundColor: theme.palette.customColors.transparent,
   [theme.breakpoints.up('md')]: {
     width: '80%',
   },
