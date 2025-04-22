@@ -1,6 +1,4 @@
 import { jwtDecode } from "jwt-decode";
-import { getLocalStorage } from "./localStorage.util";
-
 interface Decode {
   email: string;
   iat: number;

@@ -15,6 +15,7 @@ export default function HistorySideA() {
           <HistoryImage
             src={ImageHistory}
             alt="Background image"
+            loading="eager"
           />
         </FadeComponent>
         <Typography variant="body1" component="p" mb={1}>

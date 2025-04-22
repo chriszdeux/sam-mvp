@@ -34,7 +34,7 @@ export default function RootLayout({
               {
                 <>
                   {/* {<MainSnackbar />} */}
-                  {<ModalInfo />}
+                  {/* {<ModalInfo />} */}
                   {<NavbarMobile />}
                   {children}
                 </>

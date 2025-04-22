@@ -8,6 +8,10 @@
   // transform-origin: top center;
 }
 
+.width_animation {
+  animation: width_animation 6s linear infinite;
+}
+
 @keyframes rotate-fade {
   0% {
     transform: translateX(0) rotateX(0deg);
@@ -45,8 +49,20 @@
     filter: grayscale(1) brightness(100px);
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(3);
     opacity: 0;
     filter: grayscale(0) brightness(0px);
+  }
+}
+
+@keyframes width_animation {
+  0% {
+    width: 200px;
+  }
+  50% {
+    width: 600px
+  }
+  100% {
+    width: 200px;
   }
 }

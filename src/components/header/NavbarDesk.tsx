@@ -10,6 +10,8 @@ import { removeLocalStorage } from "@/utils/localStorage.util";
 import { localStorageList } from "@/enums/localStorage";
 import { RootState } from "@/store/store";
 import { Balance } from "./Balance";
+import { useEffect, useState } from "react";
+import LoadingModal from "../modal/LoadingModal";
 
 export default function NavbarDesk() {
   const { palette: { customColors } } = useTheme()
@@ -17,10 +19,23 @@ export default function NavbarDesk() {
   const fSize = "1.6rem";
   const routes = useFilterRoutes();
   const { isLogin } = useSelector((state: RootState) => state.auth);
+
+  const [loading, setLoading] = useState(false)
   const handleLogout = () => {
     dispatch(logout());
     removeLocalStorage(localStorageList.token);
   };
+
+  useEffect(() => {
+    let interval:any
+    if (loading) {
+      interval = setInterval(() => {
+        setLoading(false)
+      }, 1000)
+    }
+
+    return () => clearInterval(interval)
+  }, [loading])
   return (
     <Stack direction="row" alignItems="center" spacing={2}>
       {routes.map((route: any) => (
@@ -31,6 +46,7 @@ export default function NavbarDesk() {
             fontSize: fSize,
           }}
           component={LinkNext}
+          onClick={() => setLoading(true)}
         >
           {route.label}
         </Link>
@@ -44,6 +60,7 @@ export default function NavbarDesk() {
         </IconButton>
         </>
       )}
+      <LoadingModal open={loading}/> 
     </Stack>
   );
 }

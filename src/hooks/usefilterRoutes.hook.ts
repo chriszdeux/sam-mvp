@@ -1,14 +1,12 @@
-import { localStorageList } from "@/enums/localStorage";
+
 import { openSnackbar } from "@/redux/slices/snackbar/snackbarSlice.slice";
 import { menuRoutes, RoutesInterface } from "@/routes/routes";
 import { RootState } from "@/store/store";
-import { getLocalStorage } from "@/utils/localStorage.util";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export const useFilterRoutes = (): RoutesInterface[] => {
   const isLogin = useSelector((state: RootState) => state.auth.isLogin);
-  const token = getLocalStorage(localStorageList.token);
   const dispatch = useDispatch();
   const [routes, setRoutes] = useState<RoutesInterface[]>([]);
 
@@ -34,7 +32,7 @@ export const useFilterRoutes = (): RoutesInterface[] => {
     } catch (error) {
       dispatch(openSnackbar(error));
     }
-  }, [isLogin, token]);
+  }, [isLogin]);
 
   return routes;
 };

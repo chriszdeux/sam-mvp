@@ -21,6 +21,7 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { getLocalStorage } from "@/utils/localStorage.util";
 import { localStorageList } from "@/enums/localStorage";
+import LoadingModal from "@/components/modal/LoadingModal";
 
 interface Auth {
   isLogin: boolean;
@@ -105,7 +106,7 @@ export default function LoginPage() {
         <Typography variant="h3">
           ¿No tienes cuenta?
           <LinkM
-            href="/signup"
+            href="/auth"
             component={Link}
             underline="none"
             color="primary.main"
@@ -115,6 +116,7 @@ export default function LoginPage() {
           </LinkM>
         </Typography>
       </Stack>
+      <LoadingModal open={isLoading}/>
     </PageContainer>
   );
 }

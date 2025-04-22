@@ -8,11 +8,15 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { removeLocalStorage } from "@/utils/localStorage.util";
 import { localStorageList } from "@/enums/localStorage";
+import LoadingModal from "@/components/modal/LoadingModal";
+import { useEffect } from "react";
 
 export default function Home() {
   const isLogin = useSelector((state:RootState) => state.auth.isLogin)
-
-  if(!isLogin) removeLocalStorage(localStorageList.token)
+  useEffect(() => {
+      !isLogin && removeLocalStorage(localStorageList.token)
+  }, [isLogin])
+  
   return (
     <>
       <MainScreen />
@@ -23,7 +27,6 @@ export default function Home() {
         alt="blockchain en todas partes"
       />
       <BlockchainSection />
-      {/* <MainImageBG img={StarsImage}/> */}
     </>
   );
 }

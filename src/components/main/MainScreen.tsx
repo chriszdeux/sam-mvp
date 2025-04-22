@@ -7,10 +7,11 @@ import {
   MainSection,
 } from "@/styled-components/mainSection.styled";
 import ListMainCryptos from "./ListMainCryptos";
+import { animations } from "@/styles/animations";
 
 export default function MainScreen() {
   return (
-    <MainSection>
+    <MainSection className={animations?.fadeIn}>
       <MainInfoContainer>
         <Typography variant="h2" align="center">
           Desata el potencial de la humanidad en el cosmos

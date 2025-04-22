@@ -14,6 +14,7 @@ import {
   EmojiEvents as EmojiEventsIcon,
   SmartButton as SmartButtonIcon,
 } from "@mui/icons-material";
+import { Fragment } from "react";
 
 export default function BlockchainSideB() {
   const data = [
@@ -50,8 +51,8 @@ export default function BlockchainSideB() {
       </Typography>
       <List sx={{width: '100%', minWidth: 350}}>
         {data.map(({ title, description, icon }, index) => (
-          <>
-            <ListItem alignItems="flex-start" key={index}>
+          <Fragment key={title+index}>
+            <ListItem alignItems="flex-start">
               <ListItemText
                 primary={title}
                 secondary={
@@ -69,7 +70,7 @@ export default function BlockchainSideB() {
               <ListItemAvatar>{icon}</ListItemAvatar>
             </ListItem>
             <Divider variant="inset" component="li" />
-          </>
+          </Fragment>
         ))}
       </List>
     </Box>

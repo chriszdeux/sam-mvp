@@ -2,6 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import BlockchainImg from "../../public/img/blockchain_cube.jpg";
 import { BlockchainImage } from "@/styled-components/blockchainSection.style";
 import FadeComponent from "@/components/fades/FadeComponent";
+import Image from "next/image";
 
 export default function BlockchainSideA() {
   return (
@@ -22,7 +23,7 @@ export default function BlockchainSideA() {
           colors={[blue[300]]}
         /> */}
         <FadeComponent all caption="El poder de blockchain">
-          <BlockchainImage 
+          <Image 
             src={BlockchainImg}
             alt="blockchain configurations"
           />
