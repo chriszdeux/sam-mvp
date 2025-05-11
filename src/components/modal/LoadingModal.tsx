@@ -3,20 +3,25 @@ import LoadingCube from "../loadings/LoadingCube";
 import CustomModal from "./CustomModal";
 import { LineDetail } from "@/styled-components/global/loading.styled";
 import { animations } from "@/styles/animations";
+import { cubeStatus } from "@/enums/cubeStatus.enum";
 
 interface Props {
   open?: boolean;
+  isImg?: boolean;
   onClose?: () => void;
   children?: React.ReactNode;
   title?: string;
-  text?: string;
+  message?: string;
+  status?: string;
 }
 export default function LoadingModal({
   open=true,
   onClose = () => (console.log('test')),
+  isImg = true,
   children,
   title,
-  text = 'Cargando'
+  message = 'Cargando',
+  status
 }: Props) {
 
 
@@ -36,8 +41,8 @@ export default function LoadingModal({
         gap: 1
       }}
     >
-      <LoadingCube />
-      <Typography variant="h4">{text}</Typography>
+      { isImg && <LoadingCube status={status}/> }
+      <Typography variant="h4">{message}</Typography>
       {/* <LineDetail width={200}/> */}
     </CustomModal>
   );

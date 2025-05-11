@@ -1,26 +1,25 @@
 "use client";
-import {
-  Container,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { animations } from "@/styles/animations";
+import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 export default function MainText() {
   const theme = useTheme();
-  const lg = useMediaQuery(theme.breakpoints.down("lg"));
+  const md = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Container
+      className={animations.fadeLeft}
       sx={{
-        display: lg ? "none" : "revert",
+        display: !md ? "none" : "revert",
+        animationDuration: "2s",
+        animationDelay: "3s",
       }}
     >
-      <Typography variant="body1" align={lg ? "left" : "center"}>
+      <Typography variant="body1" align={md ? "left" : "center"}>
         En un futuro donde las galaxias están conectadas digitalmente, el
         blockchain intergaláctico asegura transacciones rápidas y fomenta
         confianza entre civilizaciones aisladas.
       </Typography>
-      <Typography variant="body1" align={lg ? "left" : "center"}>
+      <Typography variant="body1" align={md ? "left" : "center"}>
         Este sistema es clave para la cooperación y el progreso común en la
         expansión humana por el universo.
       </Typography>

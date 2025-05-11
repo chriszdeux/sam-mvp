@@ -4,24 +4,35 @@ import { openSnackbar } from "@/redux/slices/snackbar/snackbarSlice.slice";
 import { setLocalStorage } from "@/utils/localStorage.util";
 import { decodeToken } from "@/utils/token.util";
 
-export const loginHandler = async (
-  dispatch: any,
-  queryFulfilled: any
-) => {
-  try {
-    const { data } = await queryFulfilled;
-    const { id, authToken } = data.data;
-    const decode = await decodeToken(authToken);
-
-    if (decode.id !== id) {
-      dispatch(openSnackbar("Error decoding token"));
-      return;
+export const loginUser = (url:string) => ({
+  query: (form: {
+    email: string;
+    password: string;
+  }) => {
+    console.log(url)
+    console.log("form", form)
+    return {
+      url: `${url}/login`,
+      method: 'POST',
+      body: form,
     }
-
-    setLocalStorage(localStorageList.token, authToken);
-    dispatch(setCredentials(data.data));
-  } catch (error) {
-    console.error(error);
-    dispatch(openSnackbar("Error en el login"));
+  },
+  onQueryStarted: async (arg:any, { dispatch, queryFulfilled }:any) => {
+    try {
+      const { data }:any = await queryFulfilled;
+      const { id, authToken } = data.data;
+      const decode = await decodeToken(authToken);
+      if (decode.id !== id) {
+        dispatch(openSnackbar("Error decoding token"));
+        return;
+      }
+      setLocalStorage(localStorageList.token, authToken);
+      dispatch(setCredentials(data.data));
+  
+    } catch (error:any) {
+      const { data } = error;
+      console.log(data)
+      
+    }
   }
-};
+})

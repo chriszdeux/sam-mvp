@@ -8,7 +8,7 @@ interface ImageLoadingBlurProps {
 export const ImageLoadingBlur = styled(Image)<ImageLoadingBlurProps>(
   ({ theme, opacity, rotate }) => ({
     position: "absolute",
-    filter: "blur(20px)",
+    // filter: "blur(20px)",
     zIndex: -1,
     animationIterationCount: "infinite",
     animationDuration: "2s",

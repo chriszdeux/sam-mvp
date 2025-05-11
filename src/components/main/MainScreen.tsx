@@ -8,17 +8,13 @@ import {
 } from "@/styled-components/mainSection.styled";
 import ListMainCryptos from "./ListMainCryptos";
 import { animations } from "@/styles/animations";
+import MainTitles from "./MainTitles";
 
 export default function MainScreen() {
   return (
     <MainSection className={animations?.fadeIn}>
-      <MainInfoContainer>
-        <Typography variant="h2" align="center">
-          Desata el potencial de la humanidad en el cosmos
-        </Typography>
-        <Typography variant="h4" align="center">
-          Descubre el horizonte de la civilizacion digital
-        </Typography>
+      <MainInfoContainer >
+        <MainTitles />
         <MainText />
         <ListMainCryptos />
         <CallToActionButtons />

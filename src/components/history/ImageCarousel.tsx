@@ -13,9 +13,16 @@ import {
   HistoryRightImage,
 } from "@/styled-components/historySection.styled";
 
-export default function ImageCarousel() {
+interface Props {
+  sx?: any;
+  className?: string;
+}
+export default function ImageCarousel({
+  sx,
+  className,
+}:Props) {
   return (
-    <HistoryImagesDisplay>
+    <HistoryImagesDisplay className={className} sx={sx}>
       <HistoryLeftImage src={ChartImage} alt="planet img" />
       <HistoryImageContainer>
         <HistoryMainImage src={PlanetImage} alt="planet img" />

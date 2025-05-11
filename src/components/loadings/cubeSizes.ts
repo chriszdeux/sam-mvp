@@ -1,6 +1,5 @@
 const randomWidth = (start:number, end:number) => {
   const random = Math.floor(Math.random() * end) + start;
-  console.log(random);
   return random;
 };
 

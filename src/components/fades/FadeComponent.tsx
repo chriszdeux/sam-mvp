@@ -12,7 +12,7 @@ interface Props {
   all?: boolean;
   caption?: string;
   sx?: CSSProperties;
-  // className?: string;
+  className?: string;
 }
 
 export default function FadeComponent({
@@ -24,10 +24,12 @@ export default function FadeComponent({
   all,
   caption,
   sx,
+  className
 }: // className,
 Props) {
   return (
     <FigureImage
+      className={className}
       style={sx}
     >
       { left && <LeftFade></LeftFade> }

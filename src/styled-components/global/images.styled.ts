@@ -22,9 +22,10 @@ export const FigCaption = styled("figcaption")(({ theme }) => ({
   zIndex: 2,
   display: "flex",
   alignItems: "center",
+  fontSize: "1.2rem",
   [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(1.5),
-    fontSize: "0.875rem",
+    fontSize: "1rem",
   },
 }));
 

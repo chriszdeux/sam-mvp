@@ -2,16 +2,42 @@ import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import Cube from "../../public/img/cube_load.png";
 import { createGradient } from "./createGradient";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ImageLoadingBlur,
   LineDetail,
 } from "@/styled-components/global/loading.styled";
 import { animations } from "@/styles/animations";
 import { cubeSize } from "./cubeSizes";
+import { cubeStatus } from "@/enums/cubeStatus.enum";
 
-export default function LoadingCube() {
+
+interface Props {
+  status?: string
+}
+export default function LoadingCube({
+  status = cubeStatus.active
+}: Props) {
+
   const gradient = createGradient(90, 100, 10);
+  const [filter, setFilter] = useState("")
+  
+  useEffect(() => {
+    switch (status) {
+      case cubeStatus.active:
+        setFilter("hue-rotate(295deg)")
+        break;
+      case cubeStatus.warning:
+        setFilter("hue-rotate(180deg)")
+        break;
+      case cubeStatus.error:
+        setFilter("hue-rotate(70deg)")
+        break;
+      default:
+        break;
+    }
+  }, [status])
+
   
   return (
     <Box
@@ -28,6 +54,9 @@ export default function LoadingCube() {
         alt="Cube Shadow"
         width={200}
         height={200}
+        style={{
+          filter: `blur(20px) ${filter}`
+        }}
         // rotate={45}
       />
       <Image
@@ -35,6 +64,9 @@ export default function LoadingCube() {
         alt="Loading Cube"
         width={150}
         height={150}
+        style={{
+          filter
+        }}
         // style={{ objectFit: "contain", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}
       />
       <Stack alignItems="center" spacing={.5} sx={{
@@ -59,6 +91,7 @@ export default function LoadingCube() {
               // top: `${n.top}%`,
               animationDelay: `${n.delay / 2}s`,
               // transform: `translate(-50%, -50%) rotate(${i % 2 === 0 ? 45 : -45}deg)`
+              filter: filter
             }}
           />
         )

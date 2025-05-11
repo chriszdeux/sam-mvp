@@ -46,7 +46,7 @@ export default function NavbarDesk() {
             fontSize: fSize,
           }}
           component={LinkNext}
-          onClick={() => setLoading(true)}
+          // onClick={() => setLoading(true)}
         >
           {route.label}
         </Link>

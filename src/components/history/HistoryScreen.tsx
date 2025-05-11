@@ -5,9 +5,7 @@ import HistorySideB from "./HistorySideB";
 export default function HistoryScreen() {
 
   return (
-    <MainContainer
-      id="history"
-    >
+    <MainContainer id="history">
       <HistorySideA />
       <HistorySideB />
     </MainContainer>

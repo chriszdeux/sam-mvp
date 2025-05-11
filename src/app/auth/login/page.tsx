@@ -9,6 +9,7 @@ import {
   Stack,
   TextField,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -30,19 +31,20 @@ interface Auth {
 export default function LoginPage() {
   const { isLogin }: Auth = useSelector(({ auth }: any) => auth);
   const [login, { data, error, isLoading }] = useLoginMutation();
-  const theme = useTheme();
+  const { breakpoints, palette } = useTheme()
+  const md = useMediaQuery(breakpoints.down('md'))
   const router = useRouter();
   const token: any | null = getLocalStorage(localStorageList.token);
 
   const {
-    inputValues,
+    formValues,
     fieldErrors,
     onChange,
     cleanForm,
     setValues,
     runValidates,
   } = useForm(authValues.login.values, authValues.login.required);
-  const { email, password } = inputValues;
+  const { email, password } = formValues;
 
   if(isLogin || token) return router.push("/");
   const handleSubmit = async (e: FormEvent) => {
@@ -51,7 +53,7 @@ export default function LoginPage() {
   };
 
   return (
-    <PageContainer title="Iniciar Sesión">
+    <PageContainer title="Iniciar Sesión" fixWidth>
       <Stack component="form" spacing={2}>
         <TextField
           label="Usuario"
@@ -88,7 +90,7 @@ export default function LoginPage() {
         >
           {isLoading ? (
             <CircularProgress
-              sx={{ color: theme.palette.customColors.white }}
+              sx={{ color: palette.customColors.white }}
             />
           ) : (
             "Entrar"

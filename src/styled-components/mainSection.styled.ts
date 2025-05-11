@@ -10,6 +10,10 @@ export const MainSection = styled("main")(({ theme }) => ({
   position: "relative",
   overflow: "hidden",
   background: theme.palette.background.default,
+  transition: "all 1s ease-in-out",
+  // [theme.breakpoints.up("md")]: {
+  //   flexDirection: "row",
+  // },
 }));
 
 export const MainInfoContainer = styled("aside")(({ theme }) => ({
@@ -17,11 +21,11 @@ export const MainInfoContainer = styled("aside")(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     width: "45%",
   },
-  padding: theme.spacing(0.5),
+  padding: theme.spacing(5),
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center",
+  // alignItems: "center",
   gap: theme.spacing(5),
   zIndex: 1,
 }));
@@ -62,6 +66,8 @@ export const ContainerCallToActionButtons = styled(Box)(({ theme }) => ({
   },
   gap: 2,
   marginTop: 4,
+  animationDelay: "6s",
+  animationDuration: "2s",
 }));
 
 export const CryptoMainDisplay = styled(List)(({ theme }) => ({
@@ -73,10 +79,13 @@ export const CryptoMainDisplay = styled(List)(({ theme }) => ({
   zIndex: 1,
   top: 0,
   left: 0,
+  background: theme.palette.customColors.transparent,
+  borderLeft: `1px solid ${theme.palette.primary.main}`,
+  animationDelay: '3s',
   [theme.breakpoints.up("md")]: {
     width: '45%',
     position: 'absolute',
     top: '60%',
-    left: '50%',
+    left: '55%',
   },
 }));

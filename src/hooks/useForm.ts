@@ -20,12 +20,14 @@ export const useForm = <T extends Record<string, any>>(
   initialState: T,
   fieldValidations: FieldValidations<T> = {}
 ) => {
-  const [inputValues, setInputValues] = useState<T>(initialState);
+  const [formValues, setFormValues] = useState<T>(initialState);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors<T>>({});
 
   const onChange = useCallback(
     (
-      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >,
       active: boolean | null = null,
       uppercase: boolean = false
     ) => {
@@ -40,7 +42,7 @@ export const useForm = <T extends Record<string, any>>(
 
       if (validation?.required && value.trim() === "") {
         errorMsg = "* Este campo es requerido";
-      } else if (minLength && value.length > 0 && value.length < minLength) {
+      } else if (minLength && value.length >= 0 && value.length < minLength) {
         errorMsg = `* Deben ser al menos ${minLength} caracteres`;
       } else if (value.length >= 0 && value.length < (maxLength ?? Infinity)) {
         errorMsg = message || "";
@@ -53,13 +55,13 @@ export const useForm = <T extends Record<string, any>>(
 
       const finalValue = maxLength ? value.substring(0, maxLength) : value;
 
-      setInputValues((prev) => ({
+      setFormValues((prev) => ({
         ...prev,
         [name]: uppercase ? finalValue.toUpperCase() : finalValue,
       }));
 
       if (active) {
-        setInputValues((prev) => ({
+        setFormValues((prev) => ({
           ...prev,
           [name]: value,
         }));
@@ -69,47 +71,72 @@ export const useForm = <T extends Record<string, any>>(
   );
 
   const cleanForm = () => {
-    setInputValues(initialState);
+    setFormValues(initialState);
     setFieldErrors({});
   };
 
   const setValues = (values: Partial<T>) => {
-    setInputValues((prev) => ({
+    setFormValues((prev) => ({
       ...prev,
       ...values,
     }));
     setFieldErrors({});
   };
 
-  const handleInputAutoComplete = (e: React.FormEvent<HTMLInputElement>, value: string) => {
+  const handleInputAutoComplete = (
+    e: React.FormEvent<HTMLInputElement>,
+    value: string
+  ) => {
     e.preventDefault();
     const name = (e.target as HTMLInputElement).name;
 
-    setInputValues((prev) => ({
+    setFormValues((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
+
+  const onChangeCheckbox = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { checked, name } = e.target;
+
+    setFormValues((prev) => ({
+      ...prev,
+      [name]: checked,
+    }));
+  };
+
   const runValidates = (optionalFields: (keyof T)[] = []): boolean => {
     const newFieldErrors: FieldErrors<T> = {};
-
+  
     for (const fieldName in fieldValidations) {
+      if (optionalFields.includes(fieldName as keyof T)) continue;
+  
       const rule = fieldValidations[fieldName as keyof T];
-      if (rule?.required && !inputValues[fieldName] && !optionalFields.includes(fieldName)) {
+      const value = formValues[fieldName];
+  
+      if (rule?.required && (!value || value.toString().trim() === "")) {
         newFieldErrors[fieldName] = "* Este campo es requerido";
+      } else if (rule?.minLength && value.toString().length < rule.minLength) {
+        newFieldErrors[fieldName] = `* Deben ser al menos ${rule.minLength} caracteres`;
+      } else if (rule?.maxLength && value.toString().length > rule.maxLength) {
+        newFieldErrors[fieldName] = `* Deben ser como máximo ${rule.maxLength} caracteres`;
       }
     }
-
+  
     setFieldErrors(newFieldErrors);
     return Object.keys(newFieldErrors).length > 0;
   };
+  
 
   return {
-    inputValues,
+    formValues,
     fieldErrors,
     onChange,
     handleInputAutoComplete,
+    onChangeCheckbox,
     cleanForm,
     setValues,
     setFieldErrors,

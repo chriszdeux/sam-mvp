@@ -26,14 +26,20 @@ export const MainContainer = styled(Container)(({ theme }) => ( {
   }
 }));
 
-export const ContainerPage = styled(Container)(({ theme }) => ({
+interface CInterface {
+  fixWidth?: boolean
+}
+export const ContainerPage = styled(Container)<CInterface>(({ theme, fixWidth }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center",
+  // alignItems: "center",
   width: "100%",
   minHeight: "100vh",
-  paddingTop: 64 
+  paddingTop: 64,
+  [theme.breakpoints.up("md")]: {
+    width: fixWidth ? "30%" : "80%",
+  } 
 }))
 
 
