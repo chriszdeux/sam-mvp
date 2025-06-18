@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 interface Props {
   title?: string;
   open: boolean;
-  onClose: () => void;
+  onClose: () => void | null;
   children: React.ReactNode;
   autoClose?: boolean;
   duration?: number;

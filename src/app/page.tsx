@@ -1,7 +1,7 @@
 import BlockchainDiv from "@/components/blockchain_divider/BlockchainDiv";
 import HistoryScreen from "@/components/history/HistoryScreen";
 import MainScreen from "@/components/main/MainScreen";
-import ImageCube from "../public/img/blockchain_cube.jpg";
+import ImageCube from "../assets/img/blockchain_cube.jpg";
 import BlockchainSection from "@/components/blockchain/BlockchainSection";
 import { delayAnimation } from "@/utils/delayAnimation.utils";
 import { animations } from "@/styles/animations";

@@ -1,5 +1,5 @@
 "use client";
-import { useConfirmAccountMutation, useLoginMutation } from "@/api/auth/auth";
+import { useConfirmAccountMutation, useLoginMutation, useResendCodeMutation } from "@/api/auth/auth";
 import PageContainer from "@/components/containers/PageContainer";
 import { useForm } from "@/hooks/useForm";
 import {
@@ -13,12 +13,16 @@ import {
 import Link from "next/link";
 import { initialValues } from "./inputValues";
 import { requiredValues } from "./inputValues";
-import { getLocalStorage, setLocalStorage } from "@/utils/localStorage.util";
+import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utils/localStorage.util";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import LoadingModal from "@/components/modal/LoadingModal";
+import LoadingComponent from "@/components/loadings/LoadingComponent";
+import { localStorageList } from "@/enums/localStorage";
+import AuthImg from "../../../assets/img/auth.jpg";
+import { animations } from "@/styles/animations";
 
 export default function page() {
-
   const router = useRouter();
 
   const center: any = {
@@ -29,99 +33,93 @@ export default function page() {
     },
   };
   const { formValues, onChange, runValidates, fieldErrors } = useForm(
-    initialValues,
-    requiredValues
+    {code: ""},
+    {code: { required: true }}
   );
-
-  const { a, b, c } = formValues;
-  const [confirmCode, {data, isLoading, error}] = useConfirmAccountMutation();
-  const [loginAction, {loginData, loadingData, errorData}] = useLoginMutation();
+  const temp:any = getLocalStorage(localStorageList.userTemp)
+  const { code } = formValues;
+  const [confirmCode, { data, isLoading, error }] = useConfirmAccountMutation();
+  const [loginAction, { data: loginData, isLoading: loginLoading, error: loginError }] =
+    useLoginMutation();
+  const [resendCode, { data:dataCode, isLoading:loadingCode, errorCode }] =
+  useResendCodeMutation();
 
   const submit = async (e: any) => {
     e.preventDefault();
-    console.log(runValidates());
     if (runValidates()) return;
-    const code = Object.values(formValues).join("-");
-    await confirmCode({ code }).unwrap();
+    await confirmCode({ code: code.trim() }).unwrap();
   };
 
   useEffect(() => {
-    if(data?.code === 200) {
-      const form = getLocalStorage('user-temp')
-      loginAction(form).unwrap().then((res:any) => {
-        setLocalStorage('token', res.data.authToken)
-        router.push('/')
-      })
+    if (data?.code === 200) {
+      const form = getLocalStorage("user-temp");
+      loginAction(form)
+        .unwrap()
+        .then((res: any) => {
+          setLocalStorage(localStorageList.token, res.data.authToken);
+          removeLocalStorage(localStorageList.userTemp);
+          router.push("/");
+        });
     }
-  }, [data])
+  }, [data]);
+
   return (
-    <PageContainer title="Verifica tu identidad" tAlign="center" fixWidth>
-      <Stack component="form" spacing={2}>
-        <Typography variant="body1" align="center">
-          Para completar la activación de tu cuenta, por favor ingresa el código
-          de confirmación que te hemos enviado a tu correo
-        </Typography>
-        <Grid2 container spacing={2}>
-          <Grid2 size={{ xs: 4 }}>
-            <TextField
-              // label="Codigo de confirmación"
-              name="a"
-              value={a}
-              onChange={onChange}
-              fullWidth
-              error={!!fieldErrors.a}
-              helperText={fieldErrors.a}
-              slotProps={center}
-            />
-          </Grid2>
-          <Grid2 size={{ xs: 4 }}>
-            <TextField
-              // label="Codigo de confirmación"
-              name="b"
-              value={b}
-              onChange={onChange}
-              fullWidth
-              error={!!fieldErrors.b}
-              helperText={fieldErrors.b}
-              slotProps={center}
-            />
-          </Grid2>
-          <Grid2 size={{ xs: 4 }}>
-            <TextField
-              // label="Codigo de confirmación"
-              name="c"
-              value={c}
-              onChange={onChange}
-              fullWidth
-              error={!!fieldErrors.c}
-              helperText={fieldErrors.c}
-              slotProps={center}
-            />
-          </Grid2>
-        </Grid2>
-        <Button variant="contained" fullWidth onClick={submit}>
-          Verificar código
-        </Button>
-        <Typography
-          variant="h4"
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            paddingTop: 4,
-          }}
-        >
-          ¿No recibiste el código?
-          <LinkM
-            href="/auth/login"
-            component={Link}
-            underline="none"
-            color="primary.main"
-            ml={1}
-          >
-            Reenviar
-          </LinkM>
-        </Typography>
-      </Stack>
-    </PageContainer>
+    <>
+      <PageContainer title="Verifica tu identidad" tAlign="center" fixWidth img={AuthImg}>
+        <Stack component="form" spacing={2}>
+          <Typography variant="body1" align="center">
+            Para completar la activación de tu cuenta, por favor ingresa el
+            código de confirmación que te hemos enviado a tu correo
+          </Typography>
+              <TextField
+                // label="Codigo de confirmación"
+                name="code"
+                value={code}
+                onChange={onChange}
+                fullWidth
+                error={!!fieldErrors.code}
+                helperText={fieldErrors.code}
+                slotProps={center}
+              />
+          {
+            dataCode?.code === 200 && (
+              <Typography variant="body1" align="center" className={animations.fadeIn}>
+                {dataCode?.message}
+              </Typography>
+            )
+          }
+          <Button variant="contained" fullWidth onClick={submit}>
+            Verificar código
+          </Button>
+          <Typography variant="h4" align="center"
+          >¿No recibiste el código?</Typography>
+          <Button color="primary" onClick={
+            () => {
+              resendCode({ email: temp.email }).unwrap()
+            }
+          }>
+            Reenviar codigo
+          </Button>
+        </Stack>
+        {/* <LoadingModal open={isLoading} message={error ? `Error con la identificación ( ${error.data.message} )` : "Confirmando identidad..."}/> */}
+      </PageContainer>
+      <LoadingComponent
+        isLoading={isLoading}
+        message="Confirmando identidad..."
+      />
+      <LoadingComponent
+        status="error"
+        isLoading={error?.data}
+        message={`Error con la identificación ( ${error?.data.message} )`}
+      />
+      <LoadingComponent 
+        isLoading={isLoading || error?.data || loadingCode}
+        message={
+          isLoading && "Confirmando Identidad" ||
+          error?.data && `Error con la identificación ( ${error?.data.message} )` ||
+          loadingCode && "Reenviando codigo"
+        }
+      />
+    </>
   );
 }

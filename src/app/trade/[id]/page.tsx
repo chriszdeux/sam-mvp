@@ -4,7 +4,7 @@ import TabsContainer from "@/components/containers/TabsContainer";
 import { tradeRoutes } from "./tradeRoutes";
 import { useMediaQuery, useTheme } from "@mui/material";
 import MainImageBG from "@/components/image-background/MainImageBG";
-import Image from '../../../public/img/prisma.jpg'
+import Image from '../../../assets/img/prisma.jpg'
 export default function TradePage() {
   const {breakpoints} = useTheme()
   const md = useMediaQuery(breakpoints.down('md'))

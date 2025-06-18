@@ -1,4 +1,4 @@
-import Img from '../../public/img/prisma.jpg'
+import Img from '../../assets/img/prisma.jpg'
 
 const fakeData = [
   {

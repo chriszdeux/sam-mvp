@@ -3,7 +3,7 @@ import { Button, Typography } from "@mui/material";
 import CryptoLayout from "../../CryptoLayout";
 import { CustomImage } from "@/styled-components/global/images.styled";
 import FadeComponent from "@/components/fades/FadeComponent";
-import MyImg from "@/public/img/prisma.jpg";
+import MyImg from "../../../../../assets/img/prisma.jpg";
 import Link from "next/link";
 import ReturnButton from "@/components/news/ReturnButton";
 

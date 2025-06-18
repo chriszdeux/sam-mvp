@@ -1,6 +1,6 @@
 'use client'
 import { Box, Stack, Typography } from "@mui/material";
-import BlockchainImg from "../../public/img/blockchain_cube.jpg";
+import BlockchainImg from "../../assets/img/blockchain_cube.jpg";
 import { BlockchainImage } from "@/styled-components/blockchainSection.style";
 import FadeComponent from "@/components/fades/FadeComponent";
 import { useRef } from "react";

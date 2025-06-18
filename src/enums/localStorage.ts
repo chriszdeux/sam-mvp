@@ -1,3 +1,4 @@
-export const localStorageList = {
+export const localStorageList= {
     token: 'auth-token',
+    userTemp: 'user-temp'
 }

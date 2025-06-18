@@ -1,5 +1,5 @@
 import { Stack, Typography } from "@mui/material";
-import PlanetImg from "../../public/img/blockchain_cube.jpg";
+import PlanetImg from "../../assets/img/blockchain_cube.jpg";
 import FadeComponent from "../fades/FadeComponent";
 import { DescriptionContainer, DescriptionImage } from "@/styled-components/descriptionSection.style";
 export default function DescriptionBlockA() {

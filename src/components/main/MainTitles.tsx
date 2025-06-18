@@ -8,12 +8,12 @@ export default function MainTitles() {
   const md = useMediaQuery(breakpoints.up('md'))
   return (
     <>
-      <Typography variant="h1" align={md ? "left" : "center"} className={animations.fadeLeft} sx={{
+      <Typography variant="h1" align={md ? "left" : "center"} className={animations.fadeIn} sx={{
             animationDuration: '2s'
           }}>
         Desata el potencial de la humanidad en el cosmos
       </Typography>
-      <Typography variant="h2" align={md ? "left" : "center"} className={animations.fadeLeft} sx={{
+      <Typography variant="h2" align={md ? "left" : "center"} className={animations.fadeIn} sx={{
             animationDuration: '2s',
             animationDelay: '1.5s'
           }}>

@@ -1,9 +1,9 @@
-import NewsImage from '../../../../public/img/news.jpg';
-import BlockchainCube from '../../../../public/img/blockchain_cube.jpg';
-import Chart from '../../../../public/img/chart.jpg';
-import HistoryImg from '../../../../public/img/history_img.jpg';
-import Planet from '../../../../public/img/planet.jpg';
-import StarsBg from '../../../../public/img/stars_bg.jpg';
+import NewsImage from '../../../../assets/img/news.jpg';
+import BlockchainCube from '../../../../assets/img/blockchain_cube.jpg';
+import Chart from '../../../../assets/img/chart.jpg';
+import HistoryImg from '../../../../assets/img/history_img.jpg';
+import Planet from '../../../../assets/img/planet.jpg';
+import StarsBg from '../../../../assets/img/stars_bg.jpg';
 
 const newsData: any[] = [
   {

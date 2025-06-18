@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Box, Container, styled } from "@mui/material";
 import Image from "next/image";
 interface ImageLoadingBlurProps {
   opacity?: number;
@@ -48,4 +48,49 @@ export const LineDetail = styled("div")<LineDetail>(({ theme, width }) => ({
       opacity: 0,
     },
   },
+}));
+
+export const LoadingBox = styled(Box)(({ theme }) => ({
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: 99999,
+  backdropFilter: "blur(8px)",
+  WebkitBackdropFilter: "blur(8px)",
+  backgroundColor: theme.palette.customColors.transparent,
+}));
+
+
+export const LoadingContent = styled(Container)(({ theme }) => ({
+  width: "90%",
+  padding: 8,
+  margin: 1,
+  borderRadius: 8,
+  // boxShadow: `0px 4px 16px ${theme.palette.customColors.lightGreen}`,
+  // border: `1px solid ${theme.palette.customColors.lightGreen}`,
+  backgroundColor: theme.palette.customColors.transparent,
+  [theme.breakpoints.up("md")]: {
+    width: "70%",
+  },
+  [theme.breakpoints.up("lg")]: {
+    width: "40%",
+  },
+}));
+
+export const LoadingBoxLayout = styled('div')(({ theme }) => ({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100vh",
+  zIndex: -1, 
+  backdropFilter: "blur(8px) brightness(.1)",
+  WebkitBackdropFilter: "blur(8px)", 
+  // backgroundColor: "rgba(255,255,255,0.1)",
 }));

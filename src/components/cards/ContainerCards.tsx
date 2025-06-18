@@ -6,11 +6,14 @@ import { useRef } from "react";
 import { useView } from "@/hooks/useView.hook";
 import { delayAnimation } from "@/utils/delayAnimation.utils";
 import { animations } from "@/styles/animations";
+import { useRandomCurrenciesQuery } from "@/api/cryptocurrencies/cryptocurrencies";
 
 export default function ContainerCards() {
   const ref = useRef(null);
+  const { data, error, isLoading } = useRandomCurrenciesQuery();
   const isVisible = useView(ref);
   const { fadeLeft } = animations;
+  console.log(data)
   return (
     <MainContainer id="crytpos" ref={ref}>
       {

@@ -1,5 +1,5 @@
 import { Container, Stack } from "@mui/material";
-import AvImage from "../../public/img/planet.jpg";
+import AvImage from "../../assets/img/planet.jpg";
 import CryptoItemDisplay from "./CryptoItemDisplay";
 export default function CryptoDisplay() {
   return (

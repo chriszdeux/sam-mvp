@@ -18,13 +18,16 @@ import LoadingModal from "@/components/modal/LoadingModal";
 import { useGeneralHooks } from "@/hooks/useGeneralHooks";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import LoadingComponent from "@/components/loadings/LoadingComponent";
+import AuthImg from "../../assets/img/auth.jpg";
 
 export default function page() {
   const { breakpoints } = useTheme();
   const router = useRouter();
 
   const md = useMediaQuery(breakpoints.down("md"));
-  const {open, message} = useSelector(({snackbar}:any) =>snackbar )
+  const { open, message } = useSelector(({ snackbar }: any) => snackbar);
   const {
     formValues,
     onChange,
@@ -47,26 +50,24 @@ export default function page() {
   } = formValues;
   const [registerData, { data, error, isLoading }] = useRegisterMutation();
   // if(isLogin || token) return router.push("/");
-  const {
-    setOpenSnackbar,
-    setCloseSnackbar
-  } = useGeneralHooks()
+  const { setOpenSnackbar, setCloseSnackbar } = useGeneralHooks();
   const handleSubmit = async () => {
     if (runValidates()) return;
     if (password !== confirmPassword) {
       setValues({
-        equal: false
-      })
+        equal: false,
+      });
       return;
     }
     await registerData(formValues).unwrap();
     // cleanForm();
   };
-  if(data?.code === 201) return router.push("/auth/confirm_account");
+
+  useEffect(() => {
+    if (data?.code === 201) return router.push("/auth/confirm_account");
+  }, [data]);
   return (
-    <PageContainer
-      title="Crear Cuenta" fixWidth
-    >
+    <PageContainer title="Crear Cuenta" fixWidth img={AuthImg}>
       <Stack component="form" spacing={2}>
         <TextField
           label="Nombre"
@@ -148,26 +149,29 @@ export default function page() {
           variant="filled"
           color="primary"
         />
-        { !equal && <Typography variant="caption" align="center" color="warning.primary">
-          Contraseñas no coinciden
-        </Typography> }
+        {!equal && (
+          <Typography variant="caption" align="center" color="warning.primary">
+            Contraseñas no coinciden
+          </Typography>
+        )}
 
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body2" color="textSecondary" align="center">
           Favor de aceptar los
           <LinkM href="/" component={Link} ml={1} color="primary.main">
             terminos y condiciones
           </LinkM>
-          <Checkbox
-            name="terms"
-            checked={terms}
-            onChange={onChangeCheckbox}
-          />
+          <Checkbox name="terms" checked={terms} onChange={onChangeCheckbox} />
         </Typography>
 
         <Button variant="contained" fullWidth onClick={handleSubmit}>
           Entrar
         </Button>
-        <Typography variant="h4">
+        <Typography variant="h4" align="center" sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column'
+        }}>
           ¿Ya tienes cuenta?
           <LinkM
             href="/auth/login"
@@ -180,7 +184,15 @@ export default function page() {
           </LinkM>
         </Typography>
       </Stack>
-      {/* <LoadingModal open status="warning" message="Error con la blockchain"/> */}
+      <LoadingComponent
+        isLoading={isLoading}
+        message="Creando cuenta..."
+      />
+      <LoadingComponent
+        status="error"
+        isLoading={error?.data}
+        message={`Error con la identificación ( ${error?.data.message} )`}
+      />
     </PageContainer>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 import { Box, List } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 
 export const MainSection = styled("main")(({ theme }) => ({
   display: "flex",
@@ -18,14 +19,14 @@ export const MainSection = styled("main")(({ theme }) => ({
 
 export const MainInfoContainer = styled("aside")(({ theme }) => ({
   width: "100%",
-  [theme.breakpoints.up("md")]: {
-    width: "45%",
-  },
+  // [theme.breakpoints.up("md")]: {
+  //   width: "45%",
+  // },
   padding: theme.spacing(5),
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  // alignItems: "center",
+  alignItems: "center",
   gap: theme.spacing(5),
   zIndex: 1,
 }));
@@ -51,20 +52,34 @@ export const FigureStyle = styled("figure")(({ theme }) => ({
   margin: 0,
 }));
 
+export const MainBGImage = styled(Image)({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  objectPosition: "center",
+  filter: "brightness(0.15) blur(4px) ",
+  zIndex: -1,
+  animationDelay: "3s",
+  animationDuration: "15s",
+  animationIterationCount: "10",
+})
+
 export const ContainerCallToActionButtons = styled(Box)(({ theme }) => ({
   width: "100%",
   display: "flex",
-  flexDirection: "column",
-  justifyContent: "flex-end",
-  alignItems: "flex-end",
+  // flexDirection: "column",
+  justifyContent: "space-between",
+  // alignItems: "flex-end",
   [theme.breakpoints.up("md")]: {
-    flexDirection: 'row',
+    width: "30%",
   },
-  [theme.breakpoints.down("md")]: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  gap: 2,
+  // [theme.breakpoints.down("md")]: {
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  // },
   marginTop: 4,
   animationDelay: "6s",
   animationDuration: "2s",
@@ -80,12 +95,12 @@ export const CryptoMainDisplay = styled(List)(({ theme }) => ({
   top: 0,
   left: 0,
   background: theme.palette.customColors.transparent,
-  borderLeft: `1px solid ${theme.palette.primary.main}`,
+  // borderLeft: `1px solid ${theme.palette.primary.main}`,
   animationDelay: '3s',
   [theme.breakpoints.up("md")]: {
-    width: '45%',
-    position: 'absolute',
-    top: '60%',
-    left: '55%',
+    width: '50%',
+    // position: 'absolute',
+    // top: '60%',
+    // left: '55%',
   },
 }));

@@ -1,6 +1,6 @@
 'use client'
 import { Stack, Typography } from "@mui/material";
-import ImageHistory from "../../public/img/history_img.jpg";
+import ImageHistory from "../../assets/img/history_img.jpg";
 import FadeComponent from "@/components/fades/FadeComponent";
 import { HistoryImage } from "@/styled-components/historySection.styled";
 import { animations } from "@/styles/animations";

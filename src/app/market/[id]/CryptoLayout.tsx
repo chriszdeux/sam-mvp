@@ -13,7 +13,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
-import CryptoImg from "../../../public/img/prisma.jpg";
+import CryptoImg from "../../../assets/img/prisma.jpg";
 import SubmenuCrypto from "@/components/market/SubmenuCrypto";
 interface Props {
   children?: React.ReactNode;

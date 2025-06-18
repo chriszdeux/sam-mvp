@@ -2,7 +2,7 @@
 import { CryptoCardStyled } from "@/styled-components/cards.style";
 import { Box, Stack, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
-import IMG from "../../public/img/prisma.jpg";
+import IMG from "../../assets/img/prisma.jpg";
 import { animations } from "@/styles/animations";
 import { useRouter } from "next/navigation";
 

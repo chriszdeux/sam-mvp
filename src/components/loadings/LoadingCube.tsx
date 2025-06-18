@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
 import Image from "next/image";
-import Cube from "../../public/img/cube_load.png";
+import Cube from "../../assets/img/cube_load.png";
 import { createGradient } from "./createGradient";
 import { useEffect, useState } from "react";
 import {
@@ -46,6 +46,7 @@ export default function LoadingCube({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        zIndex: 2
       }}
     >
       <ImageLoadingBlur

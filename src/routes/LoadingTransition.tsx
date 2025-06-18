@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import LoadingModal from "@/components/modal/LoadingModal";
 
 export default function LoadingTransition() {
   const pathname = usePathname();
   const [showLoading, setShowLoading] = useState(false);
-  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     setShowLoading(true);
@@ -15,5 +14,5 @@ export default function LoadingTransition() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  return showLoading ? <LoadingModal open text="Cargando..." /> : null;
+  return showLoading ? <LoadingModal open message="Cargando..." /> : null;
 }

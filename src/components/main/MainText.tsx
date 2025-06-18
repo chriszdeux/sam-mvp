@@ -7,19 +7,19 @@ export default function MainText() {
 
   return (
     <Container
-      className={animations.fadeLeft}
+      className={animations.fadeIn}
       sx={{
         display: !md ? "none" : "revert",
         animationDuration: "2s",
-        animationDelay: "3s",
+        animationDelay: "2s",
       }}
     >
-      <Typography variant="body1" align={md ? "left" : "center"}>
+      <Typography variant="body1" align="center">
         En un futuro donde las galaxias están conectadas digitalmente, el
         blockchain intergaláctico asegura transacciones rápidas y fomenta
         confianza entre civilizaciones aisladas.
       </Typography>
-      <Typography variant="body1" align={md ? "left" : "center"}>
+      <Typography variant="body1" align="center">
         Este sistema es clave para la cooperación y el progreso común en la
         expansión humana por el universo.
       </Typography>

@@ -1,8 +1,8 @@
 "use client";
 import { Typography } from "@mui/material";
-import PlanetImage from "../../public/img/planet.jpg";
-import PrismaImage from "../../public/img/prisma.jpg";
-import ChartImage from "../../public/img/chart.jpg";
+import PlanetImage from "../../assets/img/planet.jpg";
+import PrismaImage from "../../assets/img/prisma.jpg";
+import ChartImage from "../../assets/img/chart.jpg";
 
 import { FigCaption } from "@/styled-components/global/images.styled";
 import {

@@ -11,7 +11,7 @@ interface Props {
 export default function ListMainCryptos({ sx }: Props) {
   const {fadeUp} = animations
   return (
-    <CryptoMainDisplay className={animations.fadeRight}>
+    <CryptoMainDisplay className={animations.fadeIn}>
       <ListItemText
         primary={<Typography variant="h3">Z-Aurus</Typography>}
         secondary={<Typography sx={{ fontSize: "1.5rem" }}>75.66 C</Typography>}

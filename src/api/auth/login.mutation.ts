@@ -31,6 +31,12 @@ export const loginUser = (url:string) => ({
   
     } catch (error:any) {
       const { data } = error;
+      if(data.needActive) {
+        setLocalStorage(localStorageList.userTemp, {
+          email: arg.email,
+          password: arg?.password
+        })
+      }
       console.log(data)
       
     }

@@ -9,11 +9,14 @@ export default function ModalInfo() {
   );
   const dispatch = useDispatch();
 
+  const handleClose = () => {
+    dispatch(closeSnackbar());
+  };
 
   return (
     <CustomModal
       open={open}
-      onClose={() => dispatch(closeSnackbar())}
+      onClose={handleClose}
       title={message}
       autoClose
     >
