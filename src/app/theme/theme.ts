@@ -1,14 +1,16 @@
+// theme.ts
 "use client";
+
+import { createTheme } from "@mui/material/styles";
 import { Goldman } from "next/font/google";
-import "@mui/material/styles";
-import { createTheme } from "@mui/material";
+import { palette } from "./palette";
 import { typography } from "./typography";
 import { buttonStyles } from "./button";
 import { textFieldStyles } from "./textfield";
-import { palette } from "./palette";
-import { breakpoints } from "./breakpoints";
 import { checkboxStyles } from "./checkbox";
+import { breakpoints } from "./breakpoints";
 
+// 👇 Extiende el tipado de Palette para customColors
 declare module "@mui/material/styles" {
   interface Palette {
     customColors: {
@@ -21,16 +23,15 @@ declare module "@mui/material/styles" {
       transparent: string;
     };
   }
-
   interface PaletteOptions {
     customColors?: {
       white?: string;
       lightBlue?: string;
       lightRed?: string;
       lightGreen?: string;
-      transparentBlue: string;
-      inputBgColor: string;
-      transparent: string;
+      transparentBlue?: string;
+      inputBgColor?: string;
+      transparent?: string;
     };
   }
 }
@@ -41,7 +42,7 @@ const goldman = Goldman({
   display: "swap",
 });
 
-const theme = createTheme({
+export const theme = createTheme({
   typography: {
     fontFamily: `${goldman.style.fontFamily}, sans-serif`,
   },
@@ -51,7 +52,7 @@ const theme = createTheme({
     ...typography,
     ...buttonStyles,
     ...textFieldStyles,
-    ...checkboxStyles
+    ...checkboxStyles,
   },
 });
 

@@ -1,80 +1,60 @@
-import { blue, teal, red, orange } from "@mui/material/colors";
-
-export const buttonStyles: any = {
+// button.ts
+export const buttonStyles = {
   MuiButton: {
     styleOverrides: {
-      root: {
-        fontSize: "1.3rem",
-        height: 48,
-        "&.Mui-loading": {
-          position: "relative",
-          pointerEvents: "none",
-          opacity: 0.7,
+      root: ({ theme }: any) => ({
+        fontSize: "1.1rem",
+        fontWeight: 600,
+        borderRadius: 4,
+        padding: "10px 24px",
+        color: theme.palette.customColors.white,
+
+        // 🎨 Efecto vidrio base
+        backgroundColor: "rgba(255, 255, 255, 0.08)",
+        backdropFilter: "blur(12px) saturate(180%)",
+        boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2)",
+        transition: "all 0.3s ease-in-out",
+
+        "&:hover": {
+          backgroundColor: "rgba(255, 255, 255, 0.15)",
+          transform: "translateY(-2px)",
+          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
         },
-      },
-      fullWidth: {
-        width: "100%",
-      },
-      contained: {
-        "&.MuiButton-primary": {
-          backgroundColor: blue[500],
-          "&:hover": {
-            backgroundColor: blue[300],
-          },
+
+        "&:active": {
+          transform: "scale(0.98)",
         },
-        "&.MuiButton-secondary": {
-          backgroundColor: teal[500],
-          "&:hover": {
-            backgroundColor: teal[300],
-          },
+      }),
+
+      // 🟦 Variantes contenidas con glass effect + color del tema
+      containedPrimary: ({ theme }: any) => ({
+        backgroundColor: "rgba(33, 150, 243, 0.25)", // azul translúcido
+        // // border: `1px solid ${theme.palette.primary.main}`,
+        "&:hover": {
+          backgroundColor: "rgba(33, 150, 243, 0.35)",
         },
-        "&.MuiButton-error": {
-          backgroundColor: red[500],
-          "&:hover": {
-            backgroundColor: red[300],
-          },
+      }),
+      containedSecondary: ({ theme }: any) => ({
+        backgroundColor: "rgba(0, 150, 136, 0.25)", // teal translúcido
+        // border: `1px solid ${theme.palette.secondary.main}`,
+        "&:hover": {
+          backgroundColor: "rgba(0, 150, 136, 0.35)",
         },
-        "&.MuiButton-warning": {
-          backgroundColor: orange[500],
-          "&:hover": {
-            backgroundColor: orange[300],
-          },
+      }),
+      containedError: ({ theme }: any) => ({
+        backgroundColor: "rgba(244, 67, 54, 0.25)", // rojo translúcido
+        // border: `1px solid ${theme.palette.error.main}`,
+        "&:hover": {
+          backgroundColor: "rgba(244, 67, 54, 0.35)",
         },
-      },
-      outlined: {
-        "&.MuiButton-primary": {
-          borderColor: blue[500],
-          color: blue[500],
-          "&:hover": {
-            borderColor: blue[300],
-            backgroundColor: blue[50],
-          },
+      }),
+      containedWarning: ({ theme }: any) => ({
+        backgroundColor: "rgba(255, 152, 0, 0.25)", // naranja translúcido
+        // border: `1px solid ${theme.palette.warning.main}`,
+        "&:hover": {
+          backgroundColor: "rgba(255, 152, 0, 0.35)",
         },
-        "&.MuiButton-secondary": {
-          borderColor: teal[500],
-          color: teal[500],
-          "&:hover": {
-            borderColor: teal[300],
-            backgroundColor: teal[50],
-          },
-        },
-        "&.MuiButton-error": {
-          borderColor: red[500],
-          color: red[500],
-          "&:hover": {
-            borderColor: red[300],
-            backgroundColor: red[50],
-          },
-        },
-        "&.MuiButton-warning": {
-          borderColor: orange[500],
-          color: orange[500],
-          "&:hover": {
-            borderColor: orange[300],
-            backgroundColor: orange[50],
-          },
-        },
-      },
+      }),
     },
   },
 };
