@@ -1,35 +1,16 @@
-import { blue } from '@mui/material/colors';
+import { TypographyOptions } from '@mui/material/styles/createTypography';
 
-export const typography: any = {
-  MuiTypography: {
-    styleOverrides: {
-      root: {
-        color: blue[50],
-      },
-      h1: {
-        fontSize: "4rem",
-        fontWeight: 700,
-      },
-      h2: {
-        fontSize: "2.8rem",
-        fontWeight: 700,
-      },
-      h3: {
-        fontSize: "2.2rem",
-        fontWeight: 700,
-      },
-      body1: {
-        fontSize: "1.6rem",
-      },
-      body2: {
-        fontSize: "1.4rem",
-      },
-      caption: {
-        fontSize: "1rem",
-      },
-      overline: {
-        fontSize: "1rem",
-      },
-    },
+export const typography: TypographyOptions = {
+  fontFamily: ['Roboto', 'sans-serif'].join(','),
+  h4: {
+    fontWeight: 700,
+    letterSpacing: '0.05em',
+  },
+  body1: {
+    fontSize: '0.9rem',
+  },
+  button: {
+    fontWeight: 600,
+    textTransform: 'none',
   }
-}
+};

@@ -1,6 +1,6 @@
 
 import { openSnackbar } from "@/redux/slices/snackbar/snackbarSlice.slice";
-import { menuRoutes, RoutesInterface } from "@/routes/routes";
+import { menuRoutes, RoutesInterface } from "@/routes/routes_";
 import { RootState } from "@/store/store";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
