@@ -1,53 +1,39 @@
 import { PaletteOptions } from '@mui/material/styles';
-import { teal, red, blue, orange } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 
-const nColor = 500;
-const hoverColor = 300;
-const light = 50;
-const white = '#f7f7f7';
-const bgColor = 'rgba(0, 0, 0, 1)';
-const inputBgColor = '#121212'; 
+const primaryColor = '#00E8C7';
+const secondaryColor = '#FF8C00';
+const errorColor = '#FF4D4D';
 
 export const palette: PaletteOptions = {
-  background: {
-    default: bgColor,
-  },
-  success: {
-    main: teal[nColor],
-    light: teal[light],
-    dark: teal[hoverColor],
-    contrastText: white,
-  },
+  mode: 'dark',
   primary: {
-    main: blue[nColor],
-    light: blue[light],
-    dark: blue[hoverColor],
+    main: primaryColor,
+    light: '#4dffdd',
+    dark: '#00b59b',
+    contrastText: '#000000',
   },
   secondary: {
-    main: teal[nColor],
-    light: teal[light],
-    dark: teal[hoverColor],
-    contrastText: white,
+    main: secondaryColor,
+    contrastText: '#000000',
+  },
+  // Nueva variante de color "neutral"
+  neutral: {
+    main: grey[500],
+    contrastText: '#fff',
+  },
+  background: {
+    default: '#121212',
+    paper: '#1E1E1E',
+  },
+  text: {
+    primary: '#E0E0E0',
+    secondary: '#A0A0A0',
   },
   error: {
-    main: red[nColor],
-    light: red[light],
-    dark: red[hoverColor],
-    contrastText: white,
+    main: errorColor,
   },
-  warning: {
-    main: orange[nColor],
-    light: orange[light],
-    dark: orange[hoverColor],
-    contrastText: white,
-  },
-  customColors: {
-    white: white,
-    lightBlue: 'rgba(5, 143, 207, 0.14)',
-    lightRed: 'rgba(255, 98, 98, 0.14)',
-    lightGreen: 'rgba(113, 247, 184, 0.15)',
-    transparentBlue: 'rgba(5, 143, 207, 0.48)',
-    transparent: 'rgba(0, 0,0, 0.48)',
-    inputBgColor: inputBgColor
-  },
+  info: { 
+    main: '#4A90E2',
+  }
 };

@@ -1,36 +1,27 @@
-import BlockchainDiv from "@/components/blockchain_divider/BlockchainDiv";
-import HistoryScreen from "@/components/history/HistoryScreen";
-import MainScreen from "@/components/main/MainScreen";
-import ImageCube from "../assets/img/blockchain_cube.jpg";
-import BlockchainSection from "@/components/blockchain/BlockchainSection";
-import { delayAnimation } from "@/utils/delayAnimation.utils";
-import { animations } from "@/styles/animations";
-import GridCards from "@/components/cards/GridCards";
-import ContainerCards from "@/components/cards/ContainerCards";
+"use client";
+import { useRef } from "react";
+import { SnappingContainer } from "@/components/containers/SnappingContainer";
+import { SlideControls } from "@/components/containers/SlideControls";
+import { HeroContent } from "@/views/hero/HeroContent";
+import { SnapSlide } from "@/styles/SnappingContainer.styles";
+import { ResponsiveImage } from "@/components/images/ResponsiveImage";
+import { InfoCard } from "@/components/Cards/InfoCard";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import HubIcon from "@mui/icons-material/Hub";
+import { FeatureContent } from "@/views/FeatureContentView/FeatureContent";
 
-export default function page() {
-  const { fadeIn } = animations;
+export default function MainPage() {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
-      <MainScreen />
-      <ContainerCards />
-      <BlockchainDiv
-        text="Blockchain: el motor que transforma cómo interactuamos en el mundo digital"
-        src={ImageCube}
-        alt="blockchain en todas partes"
-        className={fadeIn}
-        sx={delayAnimation(1)}
-      />
-      <HistoryScreen />
-      <BlockchainDiv
-        text="Blockchain: el motor que transforma cómo interactuamos en el mundo digital"
-        src={ImageCube}
-        alt="blockchain en todas partes"
-        className={fadeIn}
-        sx={delayAnimation(1)}
-      />
-      <BlockchainSection />
+      <SnappingContainer ref={containerRef}>
+          <HeroContent containerRef={containerRef}/>
+          <FeatureContent containerRef={containerRef}/>
+      </SnappingContainer>
+
+      {/* Pasamos la ref a la prop 'targetRef' */}
+      <SlideControls targetRef={containerRef} />
     </>
   );
 }
