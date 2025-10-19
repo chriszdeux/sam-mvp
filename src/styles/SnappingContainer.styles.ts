@@ -12,14 +12,14 @@ export const SnapWrapper = styled(Box)({
 });
 
 // Le enseñamos al componente a aceptar una nueva prop para la imagen
-export const SnapSlide = styled(Box)<{ backgroundImage?: string }>(({ backgroundImage }) => ({
+export const SnapSlide = styled(Box)<{ backgroundImage?: string, isBlurred?: boolean}>(({ backgroundImage, isBlurred = true }) => ({
   height: '100dvh',
   width: '100%',
   scrollSnapAlign: 'start',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center',
+  // alignItems: 'center',
   position: 'relative', // Necesario para posicionar el fondo
   overflow: 'hidden',   // Asegura que el blur no se salga de los bordes
 
@@ -37,6 +37,6 @@ export const SnapSlide = styled(Box)<{ backgroundImage?: string }>(({ background
 
     // Aquí aplicamos los efectos de opacidad y desenfoque
     opacity: 0.25,
-    filter: 'blur(8px)',
+    filter: isBlurred ? 'blur(8px)' : 'none',
   },
 }));

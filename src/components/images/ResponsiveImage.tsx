@@ -29,14 +29,22 @@ export const ResponsiveImage = ({
   sx={},
   ...rest
 }: ImageWithGradientProps) => {
-  const useFill = width === '100%' && height === '100%';
+  // Determina si se debe usar `fill`. Se usará si width o height son strings (ej: '100%')
+  // o si explícitamente se pasan como '100%'.
+  const useFill =
+    (typeof width === 'string' && width.includes('%')) ||
+    (typeof height === 'string' && height.includes('%')) ||
+    (width === '100%' && height === '100%');
 
   return (
     <ImageWrapper sx={{ width, height, ...sx }}>
       <Image
         src={src}
         alt={alt}
-        fill={useFill}
+        // Si useFill es true, la imagen llenará el contenedor.
+        // Si es false, usará los valores numéricos de width y height.
+        fill={useFill} 
+        // Solo pasamos width y height si no usamos `fill`
         width={useFill ? undefined : Number(width)}
         height={useFill ? undefined : Number(height)}
         style={{ objectFit: 'cover' }}

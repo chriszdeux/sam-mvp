@@ -5,6 +5,12 @@ type GradientDirection = 'to top' | 'to bottom' | 'to left' | 'to right';
 export const ImageWrapper = styled(Box)({
   position: 'relative',
   overflow: 'hidden',
+  // border: '1px solid red',
+  // display: 'flex',
+  // flexDirection: 'column',
+  // justifyContent: 'center',
+  // alignItems: 'center',
+  // height: '100dvh',
   // Width and height are now set by props, not fixed at 100%
 });
 
@@ -13,7 +19,7 @@ export const GradientOverlay = styled(Box)<{ gradientDirection: GradientDirectio
     position: 'absolute',
     inset: 0,
     // The gradient direction is now dynamic based on the prop
-    background: `linear-gradient(${gradientDirection}, rgba(0,0,0,1) 0%, transparent 50%)`,
+    background: `linear-gradient(${gradientDirection}, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 30%, transparent 100%)`,
     zIndex: 1,
   })
 );

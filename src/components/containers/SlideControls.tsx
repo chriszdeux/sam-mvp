@@ -5,12 +5,12 @@ import { KeyboardArrowUp, KeyboardArrowDown, KeyboardDoubleArrowUp } from '@mui/
 import { useScrollView } from '@/hooks/useScrollView';
 
 interface Props {
-  ref: React.RefObject<HTMLDivElement>;
+  targetRef: React.RefObject<HTMLDivElement>; // Renombramos 'ref' a 'targetRef'
 }
 export const SlideControls = ({
-  ref,
+  targetRef, // Usamos el nuevo nombre
 }: Props) => {
-    const { handleScrollDown, handleScrollUp, handleScrollToTop } = useScrollView(ref);
+    const { handleScrollDown, handleScrollUp, handleScrollToTop } = useScrollView(targetRef); // Pasamos el nuevo nombre al hook
 
   return (
     <Box
@@ -18,7 +18,7 @@ export const SlideControls = ({
         position: 'fixed',
         bottom: '2rem',
         right: '2rem',
-        zIndex: 1000, // Asegura que esté por encima de otros elementos
+        zIndex: 1000,
       }}
     >
       <Stack spacing={1}>

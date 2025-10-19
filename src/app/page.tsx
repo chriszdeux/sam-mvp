@@ -2,39 +2,26 @@
 import { useRef } from "react";
 import { SnappingContainer } from "@/components/containers/SnappingContainer";
 import { SlideControls } from "@/components/containers/SlideControls";
-import { HeroContent } from "@/views/HeroContent";
+import { HeroContent } from "@/views/hero/HeroContent";
 import { SnapSlide } from "@/styles/SnappingContainer.styles";
-import Image from "../assets/img/main_bg.jpg";
-import Image2 from "../assets/img/blockchain_cube.jpg";
 import { ResponsiveImage } from "@/components/images/ResponsiveImage";
+import { InfoCard } from "@/components/Cards/InfoCard";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import HubIcon from "@mui/icons-material/Hub";
+import { FeatureContent } from "@/views/FeatureContentView/FeatureContent";
+
 export default function MainPage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
       <SnappingContainer ref={containerRef}>
-        <SnapSlide backgroundImage={Image.src}>
-          <HeroContent />
-        </SnapSlide>
-        <SnapSlide backgroundImage={Image2.src}>
-          <ResponsiveImage
-            src={Image2.src}
-            alt="imagend"
-            width={500}
-            height={1000}
-            gradientDirection="to right"
-            caption="Gradient to top"
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0
-            }}
-
-          />
-        </SnapSlide>
+          <HeroContent containerRef={containerRef}/>
+          <FeatureContent containerRef={containerRef}/>
       </SnappingContainer>
 
-      <SlideControls ref={containerRef} />
+      {/* Pasamos la ref a la prop 'targetRef' */}
+      <SlideControls targetRef={containerRef} />
     </>
   );
 }
